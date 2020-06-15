@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signinPressed(_ sender: UIButton){
         guard let login = loginTextField.text, let password = passwordTextField.text else {return}
         if login == "admin" && password == "123456" {
-            print("успешная авторизация")
+            print("Ура, успешная авторизация")
         } else {
             print("неуспешная авторизация")
         }
