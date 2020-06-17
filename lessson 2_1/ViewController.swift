@@ -70,6 +70,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.removeObserver(self)
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+           if identifier == "Home" {
+               let isValid = checkUserData()
+               if !isValid {
+                   showErrorAlert()
+               }
+               return isValid
+           }
+           return true
+       }
+       
+       func checkUserData() -> Bool {
+           return loginTextField.text == "admin" &&
+               passwordTextField.text == "123"
+       }
+       
+       func showErrorAlert() {
+           let alert = UIAlertController(
+               title: "Ошибка",
+               message: "Неправильный логин или пароль",
+               preferredStyle: .alert
+           )
+           let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           alert.addAction(action)
+           
+           present(alert, animated: true, completion: nil)
+       }
 
 
 }
