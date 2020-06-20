@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signinPressed(_ sender: UIButton){
         guard let login = loginTextField.text, let password = passwordTextField.text else {return}
-        if login == "admin" && password == "123456" {
+        if login == "admin" && password == "123" {
             print("Ура, успешная авторизация")
         } else {
             print("неуспешная авторизация")
