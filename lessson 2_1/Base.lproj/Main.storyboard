@@ -184,7 +184,7 @@
             </objects>
             <point key="canvasLocation" x="4324.6376811594209" y="967.63392857142856"/>
         </scene>
-        <!--My Group Table View Controller-->
+        <!--Мои Группы-->
         <scene sceneID="CjW-Jv-lAK">
             <objects>
                 <tableViewController id="Ezs-CV-Vom" customClass="MyGroupTableViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -233,7 +233,7 @@
                             <outlet property="delegate" destination="Ezs-CV-Vom" id="7uT-96-vcD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CSY-w3-kIS">
+                    <navigationItem key="navigationItem" title="Мои Группы" id="CSY-w3-kIS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hcM-1o-R9D">
                             <connections>
                                 <segue destination="3c7-ft-mei" kind="show" id="LQw-Xm-x8S"/>
@@ -245,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="3508.6956521739135" y="217.63392857142856"/>
         </scene>
-        <!--All Group Table View Controller-->
+        <!--Все группы-->
         <scene sceneID="sm8-la-fbf">
             <objects>
                 <tableViewController id="3c7-ft-mei" customClass="AllGroupTableViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -295,14 +295,14 @@
                             <outlet property="delegate" destination="3c7-ft-mei" id="47i-SQ-bkR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hb4-sX-4GI"/>
+                    <navigationItem key="navigationItem" title="Все группы" id="hb4-sX-4GI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jk-Oh-HJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="EI9-Pr-eWi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4324.6376811594209" y="217.63392857142856"/>
         </scene>
-        <!--User List Table View Controller-->
+        <!--Друзья-->
         <scene sceneID="rV5-r7-bi1">
             <objects>
                 <tableViewController id="JzV-MT-HS7" customClass="UserListTableViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -326,18 +326,18 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5e-XX-6mW">
-                                            <rect key="frame" x="20" y="16.666666666666671" width="319" height="31"/>
+                                            <rect key="frame" x="40" y="16.666666666666671" width="299" height="31"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="26"/>
                                             <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="b5e-XX-6mW" firstAttribute="leading" secondItem="JVY-L0-c32" secondAttribute="leading" constant="20" id="AL2-VB-zDw"/>
-                                        <constraint firstItem="TUv-gL-AqR" firstAttribute="leading" secondItem="b5e-XX-6mW" secondAttribute="trailing" constant="20" id="JrJ-yc-OMG"/>
-                                        <constraint firstAttribute="trailing" secondItem="TUv-gL-AqR" secondAttribute="trailing" constant="5" id="ORU-NK-zh1"/>
-                                        <constraint firstItem="TUv-gL-AqR" firstAttribute="centerY" secondItem="JVY-L0-c32" secondAttribute="centerY" id="nyn-2a-IOl"/>
-                                        <constraint firstItem="b5e-XX-6mW" firstAttribute="centerY" secondItem="JVY-L0-c32" secondAttribute="centerY" id="qUr-iO-J66"/>
+                                        <constraint firstItem="b5e-XX-6mW" firstAttribute="leading" secondItem="JVY-L0-c32" secondAttribute="leadingMargin" constant="20" id="NE7-Ik-uPv"/>
+                                        <constraint firstAttribute="trailing" secondItem="TUv-gL-AqR" secondAttribute="trailing" constant="5" id="c3U-EW-ZOK"/>
+                                        <constraint firstItem="TUv-gL-AqR" firstAttribute="leading" secondItem="b5e-XX-6mW" secondAttribute="trailing" constant="20" id="cC6-Ha-W97"/>
+                                        <constraint firstItem="TUv-gL-AqR" firstAttribute="centerY" secondItem="JVY-L0-c32" secondAttribute="centerY" id="fiL-ml-uiq"/>
+                                        <constraint firstItem="b5e-XX-6mW" firstAttribute="centerY" secondItem="JVY-L0-c32" secondAttribute="centerY" id="mxk-iA-K0l"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -352,7 +352,7 @@
                             <outlet property="delegate" destination="JzV-MT-HS7" id="XfE-PA-eHD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0qw-OO-0zE"/>
+                    <navigationItem key="navigationItem" title="Друзья" id="0qw-OO-0zE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqX-bo-WVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -391,6 +391,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5fk-N9-4GO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
