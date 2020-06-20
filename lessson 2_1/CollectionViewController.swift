@@ -45,7 +45,7 @@ class CollectionViewController: UICollectionViewController {
        
     
         cell.image.image = userImage
-         cell.image.sizeToFit()
+       
     
         return cell
     }

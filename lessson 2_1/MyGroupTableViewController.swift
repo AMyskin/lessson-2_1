@@ -1,5 +1,5 @@
 //
-//  UserListTableViewController.swift
+//  MyGroupTableViewController.swift
 //  lessson 2_1
 //
 //  Created by Alexander Myskin on 20.06.2020.
@@ -8,39 +8,54 @@
 
 import UIKit
 
-class UserListTableViewController: UITableViewController {
+class MyGroupTableViewController: UITableViewController {
     
-    var userList: [User] = [User(name: "Друг номер 1", image: UIImage(named: "user1.jpg")!),
-                            User(name: "Друг номер 2", image: UIImage(named: "user2.jpeg")!),
-                            User(name: "Друг номер 3", image: UIImage(named: "user3.jpeg")!)
-                            
-
-    ]
-    
+    var myGroupList: [Group] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
     }
+    
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+         guard
+             let allGroupsController = segue.source as? AllGroupTableViewController,
+             let indexPath = allGroupsController.tableView.indexPathForSelectedRow
+             else { return }
+         
+         let group = allGroupsController.allGroupList[indexPath.row]
+         
+        guard !myGroupList.contains(group) else { return }
+         
+         myGroupList.append(group)
+         tableView.reloadData()
+     }
 
-
+    // MARK: - Table view data source
 
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return userList.count
+        return myGroupList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyGroupCell
 
-        cell.name.text = userList[indexPath.row].name
-        cell.userImage.image = userList[indexPath.row].image
+        cell.name.text = myGroupList[indexPath.row].name
+        cell.myGroupImage.image = myGroupList[indexPath.row].image
+        
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete {
+             myGroupList.remove(at: indexPath.row)
+             tableView.deleteRows(at: [indexPath], with: .fade)
+         }
+     }
     
 
     /*
@@ -78,21 +93,14 @@ class UserListTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "userSeque" else { return }
-        guard let destination = segue.destination as? CollectionViewController else { return }
-        
-        guard let tableRow = tableView.indexPathForSelectedRow?.row else {return}
-        
-      destination.userImage = userList[tableRow].image
-        
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
