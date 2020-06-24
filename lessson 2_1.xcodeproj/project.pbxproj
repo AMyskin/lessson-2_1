@@ -17,6 +17,9 @@
 		0A2339DF249E8EAF00290688 /* AllGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */; };
 		0A2339E1249E901600290688 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E0249E901600290688 /* GroupCell.swift */; };
 		0A2339E3249E99E000290688 /* MyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E2249E99E000290688 /* MyGroupCell.swift */; };
+		0A2339E524A3555A00290688 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E424A3555A00290688 /* AvatarView.swift */; };
+		0A2339EB24A3B43E00290688 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339EA24A3B43E00290688 /* FriendsVC.swift */; };
+		0A2339ED24A3B66300290688 /* CharPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339EC24A3B66300290688 /* CharPicker.swift */; };
 		0A668DE024929BF800F860CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DDF24929BF800F860CB /* AppDelegate.swift */; };
 		0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DE324929BF800F860CB /* LoginViewController.swift */; };
 		0A668DE724929BF800F860CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A668DE524929BF800F860CB /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupTableViewController.swift; sourceTree = "<group>"; };
 		0A2339E0249E901600290688 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		0A2339E2249E99E000290688 /* MyGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCell.swift; sourceTree = "<group>"; };
+		0A2339E424A3555A00290688 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		0A2339EA24A3B43E00290688 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
+		0A2339EC24A3B66300290688 /* CharPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharPicker.swift; sourceTree = "<group>"; };
 		0A668DDC24929BF800F860CB /* lessson 2_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lessson 2_1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A668DDF24929BF800F860CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A668DE324929BF800F860CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -90,11 +96,14 @@
 				0A2339CF249E2DA800290688 /* Model */,
 				0A668DDF24929BF800F860CB /* AppDelegate.swift */,
 				0A668DE324929BF800F860CB /* LoginViewController.swift */,
+				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
 				0A2339D2249E311200290688 /* UserListTableViewController.swift */,
 				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
 				0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */,
 				0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */,
 				0A668DE524929BF800F860CB /* Main.storyboard */,
+				0A2339EC24A3B66300290688 /* CharPicker.swift */,
+				0A2339E424A3555A00290688 /* AvatarView.swift */,
 				0A668DE824929BF900F860CB /* Assets.xcassets */,
 				0A668DEA24929BF900F860CB /* LaunchScreen.storyboard */,
 				0A668DED24929BF900F860CB /* Info.plist */,
@@ -173,10 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2339EB24A3B43E00290688 /* FriendsVC.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
 				0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */,
 				0A2339E1249E901600290688 /* GroupCell.swift in Sources */,
 				0A2339E3249E99E000290688 /* MyGroupCell.swift in Sources */,
+				0A2339E524A3555A00290688 /* AvatarView.swift in Sources */,
 				0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */,
 				0A668DE024929BF800F860CB /* AppDelegate.swift in Sources */,
 				0A2339DB249E8E0E00290688 /* Group.swift in Sources */,
@@ -185,6 +196,7 @@
 				0A2339D9249E57B200290688 /* UserCollectionViewCell.swift in Sources */,
 				0A2339D1249E2DC600290688 /* User.swift in Sources */,
 				0A2339DF249E8EAF00290688 /* AllGroupTableViewController.swift in Sources */,
+				0A2339ED24A3B66300290688 /* CharPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

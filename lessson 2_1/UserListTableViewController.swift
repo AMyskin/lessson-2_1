@@ -10,52 +10,61 @@ import UIKit
 
 class UserListTableViewController: UITableViewController {
     
-    var userList: [User] = [User(name: "Друг номер 1", image: UIImage(named: "user1.jpg")!),
-                            User(name: "Второй друг ", image: UIImage(named: "user2.jpeg")!),
-                            User(name: "Друг номер 3", image: UIImage(named: "user3.jpeg")!)
-                            
 
-    ]
     
-    let searchController = UISearchController(searchResultsController: nil)
-    var filteredUsers: [User] = []
-    var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
-    }
+    var userList:  Array<Array<User>> = User.itemsInSections
+ 
+    var chars: [String] = User.sections
+
     
-    var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
-    }
+//    let searchController = UISearchController(searchResultsController: nil)
+//    var filteredUsers: [User] = []
+//    var isSearchBarEmpty: Bool {
+//      return searchController.searchBar.text?.isEmpty ?? true
+//    }
+    
+//    var isFiltering: Bool {
+//      return searchController.isActive && !isSearchBarEmpty
+//    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 1
-        searchController.searchResultsUpdater = self
-        // 2
-        searchController.obscuresBackgroundDuringPresentation = false
-        // 3
-        searchController.searchBar.placeholder = "Поиск"
-        // 4
-        navigationItem.searchController = searchController
-        // 5
-        definesPresentationContext = true
+//        // 1
+//        searchController.searchResultsUpdater = self
+//        // 2
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        // 3
+//        searchController.searchBar.placeholder = "Поиск"
+//        // 4
+//        navigationItem.searchController = searchController
+//        // 5
+//        definesPresentationContext = true
+        
+     
 
 
     }
 
 
-
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return chars.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let char = chars[section]
+        return char
+    }
+    
+    
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if isFiltering {
-           return filteredUsers.count
-         }
+
         
-        return userList.count
+        return userList[section].count
     }
 
     
@@ -63,13 +72,11 @@ class UserListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
 
         let user: User
-        if isFiltering {
-            user = filteredUsers[indexPath.row]
-        } else {
-            user = userList[indexPath.row]
-        }
+ 
+            user = userList[indexPath.section][indexPath.row]
+
         cell.name.text = user.name
-        cell.userImage.image = user.image
+        cell.userImage.image = user.image[0]
         return cell
     }
     
@@ -113,38 +120,43 @@ class UserListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "userSeque" else { return }
         guard let destination = segue.destination as? CollectionViewController else { return }
-        
+        guard let tableSection = tableView.indexPathForSelectedRow?.section else {return}
         guard let tableRow = tableView.indexPathForSelectedRow?.row else {return}
-        if isFiltering {
-            destination.userImage = filteredUsers[tableRow].image
-        } else {
-             destination.userImage = userList[tableRow].image
-        }
+        
+     
+//        if isFiltering {
+//            destination.userImage = filteredUsers[tableRow].image
+//        } else {
+             destination.userImage = userList[tableSection][tableRow].image
+//        }
      
         
     }
     
-    func filterContentForSearchText(_ searchText: String) {
-      filteredUsers = userList.filter { (user: User) -> Bool in
-        return user.name.lowercased().contains(searchText.lowercased())
-      }
-      
-      tableView.reloadData()
-    }
+//    func filterContentForSearchText(_ searchText: String) {
+//      filteredUsers = userList.filter { (user: User) -> Bool in
+//        return user.name.lowercased().contains(searchText.lowercased())
+//      }
+//
+//      tableView.reloadData()
+//    }
     
 
 }
 
-extension UserListTableViewController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
+//extension UserListTableViewController: UISearchResultsUpdating {
+//  func updateSearchResults(for searchController: UISearchController) {
+//
+//
+//    let searchBar = searchController.searchBar
+//    filterContentForSearchText(searchBar.text!)
+//  }
+//}
 
-    
-    let searchBar = searchController.searchBar
-    filterContentForSearchText(searchBar.text!)
-  }
-}
