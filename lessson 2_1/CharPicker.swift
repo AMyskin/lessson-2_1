@@ -8,24 +8,14 @@
 
 import UIKit
 
-enum MyChar: Int, CaseIterable {
-    case А,В,Д,Я
-    
-    var title: String{
-        switch self {
-        case .А: return "А"
-        case .В: return "B"
-        case .Д: return "Д"
-        case .Я: return "Я"
-            
-        }
-    }
-}
+
 
 
 class CharPicker: UIControl {
 
     // MARK: - Views
+    
+    var chars: [String] = User.sections
     
     private var buttons: [UIButton] = []
     private var stackView: UIStackView!
@@ -48,23 +38,24 @@ class CharPicker: UIControl {
     }
     
     private func setup() {
-        for char in MyChar.allCases {
+        for char in chars {
             let button = UIButton(type: .system)
-            button.setTitle(char.title, for: .normal)
-            button.addTarget(self, action: #selector(selectDay(_:)), for: .touchUpInside)
+            button.setTitle(char, for: .normal)
+            button.addTarget(self, action: #selector(selectChar(_:)), for: .touchUpInside)
             buttons.append(button)
         }
         
         stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .vertical
         stackView.spacing = 8
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         
         addSubview(stackView)
         
-        let tap = UIPanGestureRecognizer()
-        tap.addTarget(self, action: #selector(panRecognizer))
-        addGestureRecognizer(tap)
+        let pan = UIPanGestureRecognizer()
+        pan.addTarget(self, action: #selector(panRecognizer))
+        
+        addGestureRecognizer(pan)
         
     }
     
@@ -72,13 +63,15 @@ class CharPicker: UIControl {
         print(#function)
     }
     
-    @objc func selectDay(_ sender: UIButton) {
+    @objc func selectChar(_ sender: UIButton) {
         guard
-            let index = buttons.firstIndex(of: sender),
-            let char = MyChar(rawValue: index)
+            let index = buttons.firstIndex(of: sender)
+            
             else { return }
         
-        print(char.title)
+        let char = chars[index]
+        
+        print(char)
     }
 
  

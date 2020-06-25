@@ -320,41 +320,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqf-0C-D9m">
-                                                    <rect key="frame" x="40" y="19.666666666666668" width="144.66666666666666" height="21.000000000000004"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqf-0C-D9m">
+                                                    <rect key="frame" x="40" y="19.666666666666668" width="150" height="21.000000000000004"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnn-v1-XZf" customClass="AvatarView" customModule="lessson_2_1" customModuleProvider="target">
-                                                    <rect key="frame" x="354" y="10" width="40" height="40"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tI8-9W-4HZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="IXu-NE-swN"/>
-                                                                <constraint firstAttribute="height" constant="40" id="P52-pU-EYA"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cnn-v1-XZf" customClass="AvatarView" customModule="lessson_2_1" customModuleProvider="target">
+                                                    <rect key="frame" x="344" y="10" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="tI8-9W-4HZ" secondAttribute="trailing" id="3BD-qA-ll3"/>
-                                                        <constraint firstItem="tI8-9W-4HZ" firstAttribute="leading" secondItem="cnn-v1-XZf" secondAttribute="leading" id="GVI-UZ-8hE"/>
-                                                        <constraint firstAttribute="bottom" secondItem="tI8-9W-4HZ" secondAttribute="bottom" id="LbJ-zt-kwD"/>
-                                                        <constraint firstItem="tI8-9W-4HZ" firstAttribute="top" secondItem="cnn-v1-XZf" secondAttribute="top" id="Tls-zr-n1Y"/>
-                                                        <constraint firstAttribute="width" constant="40" id="Uv7-w6-r6s"/>
-                                                        <constraint firstAttribute="height" constant="40" id="wlO-jj-KNN"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="uqf-0C-D9m" firstAttribute="centerY" secondItem="8rq-Yo-PiX" secondAttribute="centerY" id="3IY-9U-UJS"/>
-                                                <constraint firstItem="cnn-v1-XZf" firstAttribute="centerY" secondItem="8rq-Yo-PiX" secondAttribute="centerY" id="BkW-vW-V3g"/>
-                                                <constraint firstItem="cnn-v1-XZf" firstAttribute="leading" secondItem="uqf-0C-D9m" secondAttribute="trailing" constant="169.33333333333334" id="aF8-Xu-yos"/>
-                                                <constraint firstAttribute="trailing" secondItem="cnn-v1-XZf" secondAttribute="trailing" constant="20" id="dtY-SD-dfv"/>
-                                                <constraint firstItem="uqf-0C-D9m" firstAttribute="leading" secondItem="8rq-Yo-PiX" secondAttribute="leadingMargin" constant="20" id="xfh-uU-gLr"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="widthShadow">
@@ -365,9 +343,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="avatarView" destination="cnn-v1-XZf" id="3Rf-1O-0U5"/>
+                                            <outlet property="avatarView" destination="cnn-v1-XZf" id="MnI-od-vkp"/>
                                             <outlet property="name" destination="uqf-0C-D9m" id="jpz-vc-urT"/>
-                                            <outlet property="userImage" destination="tI8-9W-4HZ" id="7Qi-8U-biU"/>
                                             <segue destination="Hmc-Qe-cak" kind="show" identifier="userSeque" id="z0q-1Q-gbc"/>
                                         </connections>
                                     </tableViewCell>
@@ -382,19 +359,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="2pv-KP-HpV"/>
+                                    <constraint firstAttribute="width" constant="30" id="7TX-4V-XIl"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="top" secondItem="1QE-0x-b0p" secondAttribute="top" id="Xcy-QU-Nyz"/>
-                            <constraint firstItem="wsu-aF-Xdv" firstAttribute="top" secondItem="1QE-0x-b0p" secondAttribute="top" constant="20" id="aEP-h0-i1D"/>
-                            <constraint firstItem="1QE-0x-b0p" firstAttribute="bottom" secondItem="hes-KZ-oJ5" secondAttribute="bottom" id="juA-Q1-1Wj"/>
-                            <constraint firstItem="1QE-0x-b0p" firstAttribute="trailing" secondItem="hes-KZ-oJ5" secondAttribute="trailing" id="lNT-sP-hcf"/>
-                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="leading" secondItem="1QE-0x-b0p" secondAttribute="leading" id="nTh-Ms-am5"/>
-                            <constraint firstItem="1QE-0x-b0p" firstAttribute="bottom" secondItem="wsu-aF-Xdv" secondAttribute="bottom" constant="20" id="r3b-sn-g97"/>
-                            <constraint firstItem="1QE-0x-b0p" firstAttribute="trailing" secondItem="wsu-aF-Xdv" secondAttribute="trailing" id="vtH-AO-r3T"/>
+                            <constraint firstItem="wsu-aF-Xdv" firstAttribute="trailing" secondItem="1QE-0x-b0p" secondAttribute="trailing" id="LJJ-Eg-B9T"/>
+                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="trailing" secondItem="1QE-0x-b0p" secondAttribute="trailing" id="Oba-rf-RQH"/>
+                            <constraint firstItem="1QE-0x-b0p" firstAttribute="bottom" secondItem="wsu-aF-Xdv" secondAttribute="bottom" constant="20" id="SUH-2U-ry2"/>
+                            <constraint firstItem="wsu-aF-Xdv" firstAttribute="top" secondItem="1QE-0x-b0p" secondAttribute="top" constant="20" id="fY1-aa-uFd"/>
+                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="leading" secondItem="1QE-0x-b0p" secondAttribute="leading" id="nv6-Ny-oTV"/>
+                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="bottom" secondItem="1QE-0x-b0p" secondAttribute="bottom" id="pjA-cE-SRR"/>
+                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="top" secondItem="1QE-0x-b0p" secondAttribute="top" id="w5s-fd-wgz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1QE-0x-b0p"/>
                     </view>
@@ -407,7 +384,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XB1-rm-o16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="y3o-Ye-x8R"/>
             </objects>
-            <point key="canvasLocation" x="3480" y="1126"/>
+            <point key="canvasLocation" x="3479.7101449275365" y="1125.6696428571429"/>
         </scene>
         <!--Добро пожаловать-->
         <scene sceneID="oF0-RT-rY4">

@@ -28,10 +28,8 @@ import UIKit
             setNeedsDisplay()
         }
     }
-
-
- 
     
+  
 
     @IBOutlet weak var name: UILabel!
     
@@ -52,19 +50,7 @@ import UIKit
     }
     
     
-    @IBOutlet weak var avatarView: AvatarView!{
-        didSet{
-
-            
-            avatarView.layer.cornerRadius = imageRadius;
-            avatarView.layer.shadowColor = shadowColor;
-            avatarView.layer.shadowOpacity = shadowOpacity;
-            avatarView.layer.shadowRadius = widthShadow;
-            avatarView.layer.shadowOffset = CGSize (width: 5, height: 5)
-            
-         
-        }
-    }
+    @IBOutlet weak var avatarView: AvatarView!
     
     
 
