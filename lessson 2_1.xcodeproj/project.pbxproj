@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A2339D1249E2DC600290688 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339D0249E2DC600290688 /* User.swift */; };
-		0A2339D3249E311200290688 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339D2249E311200290688 /* UserListTableViewController.swift */; };
 		0A2339D5249E39BA00290688 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339D4249E39BA00290688 /* UserCell.swift */; };
 		0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339D6249E563E00290688 /* CollectionViewController.swift */; };
 		0A2339D9249E57B200290688 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */; };
@@ -16,10 +15,10 @@
 		0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */; };
 		0A2339DF249E8EAF00290688 /* AllGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */; };
 		0A2339E1249E901600290688 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E0249E901600290688 /* GroupCell.swift */; };
-		0A2339E3249E99E000290688 /* MyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E2249E99E000290688 /* MyGroupCell.swift */; };
 		0A2339E524A3555A00290688 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339E424A3555A00290688 /* AvatarView.swift */; };
 		0A2339EB24A3B43E00290688 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339EA24A3B43E00290688 /* FriendsVC.swift */; };
 		0A2339ED24A3B66300290688 /* CharPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339EC24A3B66300290688 /* CharPicker.swift */; };
+		0A2339F124A72BD300290688 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339F024A72BD300290688 /* LikeView.swift */; };
 		0A668DE024929BF800F860CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DDF24929BF800F860CB /* AppDelegate.swift */; };
 		0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DE324929BF800F860CB /* LoginViewController.swift */; };
 		0A668DE724929BF800F860CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A668DE524929BF800F860CB /* Main.storyboard */; };
@@ -29,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		0A2339D0249E2DC600290688 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0A2339D2249E311200290688 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		0A2339D4249E39BA00290688 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0A2339D6249E563E00290688 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -37,11 +35,11 @@
 		0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupTableViewController.swift; sourceTree = "<group>"; };
 		0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupTableViewController.swift; sourceTree = "<group>"; };
 		0A2339E0249E901600290688 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
-		0A2339E2249E99E000290688 /* MyGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCell.swift; sourceTree = "<group>"; };
 		0A2339E424A3555A00290688 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		0A2339EA24A3B43E00290688 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		0A2339EC24A3B66300290688 /* CharPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharPicker.swift; sourceTree = "<group>"; };
-		0A668DDC24929BF800F860CB /* lessson 2_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lessson 2_1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A2339F024A72BD300290688 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
+		0A668DDC24929BF800F860CB /* lessson 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lessson 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A668DDF24929BF800F860CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A668DE324929BF800F860CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A668DE624929BF800F860CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,13 +63,32 @@
 			isa = PBXGroup;
 			children = (
 				0A2339D0249E2DC600290688 /* User.swift */,
-				0A2339D4249E39BA00290688 /* UserCell.swift */,
-				0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */,
 				0A2339DA249E8E0E00290688 /* Group.swift */,
-				0A2339E0249E901600290688 /* GroupCell.swift */,
-				0A2339E2249E99E000290688 /* MyGroupCell.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0A2339EE24A6518C00290688 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0A2339EF24A651C600290688 /* Cells */,
+				0A668DE324929BF800F860CB /* LoginViewController.swift */,
+				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
+				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
+				0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */,
+				0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0A2339EF24A651C600290688 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A2339D4249E39BA00290688 /* UserCell.swift */,
+				0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */,
+				0A2339E0249E901600290688 /* GroupCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0A668DD324929BF800F860CB = {
@@ -85,7 +102,7 @@
 		0A668DDD24929BF800F860CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A668DDC24929BF800F860CB /* lessson 2_1.app */,
+				0A668DDC24929BF800F860CB /* lessson 2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,20 +110,16 @@
 		0A668DDE24929BF800F860CB /* lessson 2_1 */ = {
 			isa = PBXGroup;
 			children = (
-				0A2339CF249E2DA800290688 /* Model */,
+				0A668DED24929BF900F860CB /* Info.plist */,
 				0A668DDF24929BF800F860CB /* AppDelegate.swift */,
-				0A668DE324929BF800F860CB /* LoginViewController.swift */,
-				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
-				0A2339D2249E311200290688 /* UserListTableViewController.swift */,
-				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
-				0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */,
-				0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */,
+				0A2339EE24A6518C00290688 /* Controllers */,
+				0A2339CF249E2DA800290688 /* Model */,
 				0A668DE524929BF800F860CB /* Main.storyboard */,
 				0A2339EC24A3B66300290688 /* CharPicker.swift */,
 				0A2339E424A3555A00290688 /* AvatarView.swift */,
+				0A2339F024A72BD300290688 /* LikeView.swift */,
 				0A668DE824929BF900F860CB /* Assets.xcassets */,
 				0A668DEA24929BF900F860CB /* LaunchScreen.storyboard */,
-				0A668DED24929BF900F860CB /* Info.plist */,
 			);
 			path = "lessson 2_1";
 			sourceTree = "<group>";
@@ -128,7 +141,7 @@
 			);
 			name = "lessson 2_1";
 			productName = "lessson 2_1";
-			productReference = 0A668DDC24929BF800F860CB /* lessson 2_1.app */;
+			productReference = 0A668DDC24929BF800F860CB /* lessson 2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,12 +199,11 @@
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
 				0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */,
 				0A2339E1249E901600290688 /* GroupCell.swift in Sources */,
-				0A2339E3249E99E000290688 /* MyGroupCell.swift in Sources */,
 				0A2339E524A3555A00290688 /* AvatarView.swift in Sources */,
 				0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */,
 				0A668DE024929BF800F860CB /* AppDelegate.swift in Sources */,
+				0A2339F124A72BD300290688 /* LikeView.swift in Sources */,
 				0A2339DB249E8E0E00290688 /* Group.swift in Sources */,
-				0A2339D3249E311200290688 /* UserListTableViewController.swift in Sources */,
 				0A2339D5249E39BA00290688 /* UserCell.swift in Sources */,
 				0A2339D9249E57B200290688 /* UserCollectionViewCell.swift in Sources */,
 				0A2339D1249E2DC600290688 /* User.swift in Sources */,
@@ -347,10 +359,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "home.lessson-2-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "home.lessson-2";
+				PRODUCT_NAME = "lessson 2";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -365,10 +378,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "home.lessson-2-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "home.lessson-2";
+				PRODUCT_NAME = "lessson 2";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

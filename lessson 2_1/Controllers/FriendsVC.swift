@@ -8,7 +8,19 @@
 
 import UIKit
 
-class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate {
+    
+    
+    var char: String = ""
+    
+    func charPushed(char: String) {
+        print(char)
+        self.char = char
+        
+    }
+    
+ 
+    
     
     @IBOutlet weak var charPicker: CharPicker!
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +35,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        charPicker.delegate = self
          
         
     }
@@ -33,10 +46,17 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return chars.count
     }
     
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let char = chars[section]
         return char
     }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return chars
+    }
+
+ 
     
     
     
@@ -58,9 +78,11 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.name.text = user.name
         cell.avatarView.avatarImage = user.avatar
-       // cell.userImage.image = user.image[0]
+        
+       
         return cell
     }
+  
     
     
     

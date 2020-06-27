@@ -1,5 +1,5 @@
 //
-//  MyGroupCell.swift
+//  GroupCell.swift
 //  lessson 2_1
 //
 //  Created by Alexander Myskin on 20.06.2020.
@@ -8,10 +8,13 @@
 
 import UIKit
 
-class MyGroupCell: UITableViewCell {
-
-
+class GroupCell: UITableViewCell {
+    
+    
     @IBOutlet weak var name: UILabel!
     
-    @IBOutlet weak var myGroupImage: UIImageView!
+    
+    
+    @IBOutlet weak var avatarView: AvatarView!
+    
 }

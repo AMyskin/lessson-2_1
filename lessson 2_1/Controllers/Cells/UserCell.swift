@@ -1,5 +1,5 @@
 //
-//  GroupCell.swift
+//  UserCell.swift
 //  lessson 2_1
 //
 //  Created by Alexander Myskin on 20.06.2020.
@@ -8,10 +8,16 @@
 
 import UIKit
 
-class GroupCell: UITableViewCell {
+ class UserCell: UITableViewCell {
+    
+   
 
-  
     @IBOutlet weak var name: UILabel!
     
-    @IBOutlet weak var groupImage: UIImageView!
+
+    @IBOutlet weak var avatarView: AvatarView!
+    
+    
+
+    
 }

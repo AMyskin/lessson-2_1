@@ -1,5 +1,5 @@
 //
-//  MyGroupTableViewController.swift
+//  AllGroupTableViewController.swift
 //  lessson 2_1
 //
 //  Created by Alexander Myskin on 20.06.2020.
@@ -8,28 +8,21 @@
 
 import UIKit
 
-class MyGroupTableViewController: UITableViewController {
+class AllGroupTableViewController: UITableViewController {
     
-    var myGroupList: [Group] = []
+    
+    var allGroupList = Group.testGroup
+                            
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
     }
     
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-         guard
-             let allGroupsController = segue.source as? AllGroupTableViewController,
-             let indexPath = allGroupsController.tableView.indexPathForSelectedRow
-             else { return }
-         
-         let group = allGroupsController.allGroupList[indexPath.row]
-         
-        guard !myGroupList.contains(group) else { return }
-         
-         myGroupList.append(group)
-         tableView.reloadData()
-     }
+ 
 
     // MARK: - Table view data source
 
@@ -37,25 +30,25 @@ class MyGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myGroupList.count
+        return allGroupList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyGroupCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! GroupCell
 
-        cell.name.text = myGroupList[indexPath.row].name
-        cell.myGroupImage.image = myGroupList[indexPath.row].image
-        
+        cell.name.text = allGroupList[indexPath.row].name
+        cell.avatarView.avatarImage = allGroupList[indexPath.row].image
+
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
-             myGroupList.remove(at: indexPath.row)
-             tableView.deleteRows(at: [indexPath], with: .fade)
-         }
-     }
+           if editingStyle == .delete {
+               allGroupList.remove(at: indexPath.row)
+               tableView.deleteRows(at: [indexPath], with: .fade)
+           }
+       }
     
 
     /*

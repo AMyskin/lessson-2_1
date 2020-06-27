@@ -9,9 +9,13 @@
 import UIKit
 
 
+protocol CharDelegate: class {
+    func charPushed(char: String)
+}
 
-
-class CharPicker: UIControl {
+class CharPicker: UIView {
+    
+    weak var delegate: CharDelegate?
 
     // MARK: - Views
     
@@ -71,7 +75,9 @@ class CharPicker: UIControl {
         
         let char = chars[index]
         
-        print(char)
+        delegate?.charPushed(char: char)
+        
+        
     }
 
  

@@ -14,42 +14,41 @@ class CollectionViewController: UICollectionViewController {
     
     
     
-    
     var userImage : [UIImage] = []
     
     
-   
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        
     }
-
     
-   
-
-
+    
+    
+    
+    
     // MARK: UICollectionViewDataSource
-
-
-
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return userImage.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserCollectionViewCell
         
-       
-    
+        
+        
         cell.image.image = userImage[indexPath.row]
-       
-    
+        
+        
         return cell
     }
-
-
-
+    
+    
+    
 }

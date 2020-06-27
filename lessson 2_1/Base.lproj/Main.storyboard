@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
         <!--Collection View Controller-->
         <scene sceneID="IkD-RO-w5G">
             <objects>
-                <collectionViewController id="Hmc-Qe-cak" customClass="CollectionViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Hmc-Qe-cak" customClass="CollectionViewController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lCZ-vS-FZU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +145,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Bfo-4F-8ZI" customClass="UserCollectionViewCell" customModule="lessson_2_1" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Bfo-4F-8ZI" customClass="UserCollectionViewCell" customModule="lessson_2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tdf-fF-MfJ">
@@ -160,6 +160,21 @@
                                                 <constraint firstAttribute="height" constant="200" id="VYz-4A-9Ui"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" id="AUF-M2-flI" customClass="LikeView" customModule="lessson_2" customModuleProvider="target">
+                                            <rect key="frame" x="135" y="170" width="65" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="0oi-ge-mbx"/>
+                                                <constraint firstAttribute="height" constant="30" id="CcP-xj-Vex"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isLiked" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="likesCount">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="zwQ-Xg-ghr" firstAttribute="centerY" secondItem="tdf-fF-MfJ" secondAttribute="centerY" id="Qei-iX-qOu"/>
@@ -169,6 +184,7 @@
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
                                     <outlet property="image" destination="zwQ-Xg-ghr" id="WRF-hT-TGK"/>
+                                    <outlet property="likeControl" destination="AUF-M2-flI" id="RcZ-0Z-eQs"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -186,44 +202,48 @@
         <!--Мои Группы-->
         <scene sceneID="CjW-Jv-lAK">
             <objects>
-                <tableViewController id="Ezs-CV-Vom" customClass="MyGroupTableViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ezs-CV-Vom" customClass="MyGroupTableViewController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WoP-SS-AjS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="0ol-xr-QHg" customClass="MyGroupCell" customModule="lessson_2_1" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="hwz-jF-hXw" customClass="GroupCell" customModule="lessson_2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ol-xr-QHg" id="nOi-O6-4vf">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hwz-jF-hXw" id="TCB-1g-2AV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfG-Za-7Ml">
-                                            <rect key="frame" x="60" y="23.666666666666671" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhu-gr-v4i">
+                                            <rect key="frame" x="50" y="19.666666666666668" width="150" height="21.000000000000004"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5iN-JR-Ic7"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gp8-gd-YHq">
-                                            <rect key="frame" x="359" y="9" width="50" height="50"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-uz-hqP" customClass="AvatarView" customModule="lessson_2" customModuleProvider="target">
+                                            <rect key="frame" x="354" y="10" width="40" height="40"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="7PW-hY-onD"/>
-                                                <constraint firstAttribute="height" constant="50" id="VJC-Ph-YOD"/>
+                                                <constraint firstAttribute="height" constant="40" id="7Rk-1X-Iw5"/>
+                                                <constraint firstAttribute="width" constant="40" id="fUb-x7-oBo"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Gp8-gd-YHq" secondAttribute="trailing" constant="5" id="1cZ-Bh-dYq"/>
-                                        <constraint firstItem="Gp8-gd-YHq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bfG-Za-7Ml" secondAttribute="trailing" constant="20" id="88J-E7-UyI"/>
-                                        <constraint firstItem="Gp8-gd-YHq" firstAttribute="centerY" secondItem="nOi-O6-4vf" secondAttribute="centerY" id="Beq-pb-ArE"/>
-                                        <constraint firstItem="bfG-Za-7Ml" firstAttribute="centerY" secondItem="nOi-O6-4vf" secondAttribute="centerY" id="RUN-uf-hzm"/>
-                                        <constraint firstItem="bfG-Za-7Ml" firstAttribute="leading" secondItem="nOi-O6-4vf" secondAttribute="leadingMargin" constant="40" id="rYg-Y2-dGD"/>
+                                        <constraint firstItem="Jcv-uz-hqP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yhu-gr-v4i" secondAttribute="trailing" constant="20" id="9Zd-hv-OhK"/>
+                                        <constraint firstItem="Jcv-uz-hqP" firstAttribute="centerY" secondItem="TCB-1g-2AV" secondAttribute="centerY" id="PgR-lB-ckU"/>
+                                        <constraint firstItem="Yhu-gr-v4i" firstAttribute="centerY" secondItem="TCB-1g-2AV" secondAttribute="centerY" id="cf4-Ob-wvO"/>
+                                        <constraint firstItem="Yhu-gr-v4i" firstAttribute="leading" secondItem="TCB-1g-2AV" secondAttribute="leadingMargin" constant="30" id="gHC-x0-10V"/>
+                                        <constraint firstAttribute="trailing" secondItem="Jcv-uz-hqP" secondAttribute="trailing" constant="20" id="wwQ-ZX-JU9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="myGroupImage" destination="Gp8-gd-YHq" id="6PT-up-r6i"/>
-                                    <outlet property="name" destination="bfG-Za-7Ml" id="9e2-nG-jfV"/>
+                                    <outlet property="avatarView" destination="Jcv-uz-hqP" id="KLw-oo-mkY"/>
+                                    <outlet property="name" destination="Yhu-gr-v4i" id="HBj-I7-rJD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -247,13 +267,13 @@
         <!--Все группы-->
         <scene sceneID="sm8-la-fbf">
             <objects>
-                <tableViewController id="3c7-ft-mei" customClass="AllGroupTableViewController" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3c7-ft-mei" customClass="AllGroupTableViewController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TfS-Lv-LDX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="onX-ug-43q" customClass="GroupCell" customModule="lessson_2_1" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="onX-ug-43q" customClass="GroupCell" customModule="lessson_2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onX-ug-43q" id="CJh-78-cqq">
@@ -261,29 +281,33 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-LP-hbM">
-                                            <rect key="frame" x="40" y="23.666666666666671" width="41.666666666666657" height="21"/>
+                                            <rect key="frame" x="40" y="23.666666666666671" width="150" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="EYv-W9-wBA"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G5V-sb-tDz">
-                                            <rect key="frame" x="359" y="9" width="50" height="50"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="601-fX-zuT" customClass="AvatarView" customModule="lessson_2" customModuleProvider="target">
+                                            <rect key="frame" x="334" y="14" width="40" height="40"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="UZu-Gk-zP5"/>
-                                                <constraint firstAttribute="height" constant="50" id="kyV-57-A5b"/>
+                                                <constraint firstAttribute="width" constant="40" id="AsC-Za-d9c"/>
+                                                <constraint firstAttribute="height" constant="40" id="GP8-iS-dd3"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="G5V-sb-tDz" secondAttribute="trailing" constant="5" id="AxD-jt-gmT"/>
-                                        <constraint firstItem="G5V-sb-tDz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hhn-LP-hbM" secondAttribute="trailing" constant="20" id="ECB-iM-kGL"/>
-                                        <constraint firstItem="G5V-sb-tDz" firstAttribute="centerY" secondItem="CJh-78-cqq" secondAttribute="centerY" id="MOy-8D-t6b"/>
                                         <constraint firstItem="hhn-LP-hbM" firstAttribute="centerY" secondItem="CJh-78-cqq" secondAttribute="centerY" id="Mdn-yF-dR7"/>
+                                        <constraint firstItem="601-fX-zuT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hhn-LP-hbM" secondAttribute="trailing" constant="20" id="OAh-3o-2fj"/>
+                                        <constraint firstAttribute="trailing" secondItem="601-fX-zuT" secondAttribute="trailing" constant="40" id="gnF-1C-KqS"/>
+                                        <constraint firstItem="601-fX-zuT" firstAttribute="centerY" secondItem="CJh-78-cqq" secondAttribute="centerY" id="jS2-41-tdd"/>
                                         <constraint firstItem="hhn-LP-hbM" firstAttribute="leading" secondItem="CJh-78-cqq" secondAttribute="leading" constant="40" id="okC-6L-XKV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="groupImage" destination="G5V-sb-tDz" id="4et-h7-Zi9"/>
+                                    <outlet property="avatarView" destination="601-fX-zuT" id="EFz-9d-gcd"/>
                                     <outlet property="name" destination="hhn-LP-hbM" id="6Ww-kg-dde"/>
                                     <segue destination="EI9-Pr-eWi" kind="unwind" unwindAction="addGroupWithSegue:" id="Mbd-JT-GVT"/>
                                 </connections>
@@ -304,48 +328,52 @@
         <!--Друзья-->
         <scene sceneID="wo1-2Q-Iof">
             <objects>
-                <viewController id="Xui-hI-MbW" customClass="FriendsVC" customModule="lessson_2_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xui-hI-MbW" customClass="FriendsVC" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kYL-sU-ne4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hes-KZ-oJ5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="364" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="gd3-r5-9Fg" customClass="UserCell" customModule="lessson_2_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5Ja-if-UTQ" customClass="UserCell" customModule="lessson_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="364" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gd3-r5-9Fg" id="8rq-Yo-PiX" customClass="UserCell" customModule="lessson_2_1" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Ja-if-UTQ" id="ih1-gW-NRP">
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqf-0C-D9m">
-                                                    <rect key="frame" x="40" y="19.666666666666668" width="150" height="21.000000000000004"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2V-U5-kCl">
+                                                    <rect key="frame" x="50" y="19.666666666666668" width="200" height="21.000000000000004"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="5m8-wt-pCC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cnn-v1-XZf" customClass="AvatarView" customModule="lessson_2_1" customModuleProvider="target">
-                                                    <rect key="frame" x="344" y="10" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsz-yA-mkN" customClass="AvatarView" customModule="lessson_2" customModuleProvider="target">
+                                                    <rect key="frame" x="294" y="10" width="40" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="NkE-Xq-taB"/>
+                                                        <constraint firstAttribute="width" constant="40" id="pR0-Sk-xXn"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Y2V-U5-kCl" firstAttribute="centerY" secondItem="ih1-gW-NRP" secondAttribute="centerY" id="AZg-3m-xyf"/>
+                                                <constraint firstItem="Qsz-yA-mkN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y2V-U5-kCl" secondAttribute="trailing" constant="20" id="FEe-1g-51o"/>
+                                                <constraint firstItem="Y2V-U5-kCl" firstAttribute="leading" secondItem="ih1-gW-NRP" secondAttribute="leadingMargin" constant="30" id="SsW-4x-uWc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qsz-yA-mkN" secondAttribute="trailing" constant="30" id="c5E-zd-fLu"/>
+                                                <constraint firstItem="Qsz-yA-mkN" firstAttribute="centerY" secondItem="ih1-gW-NRP" secondAttribute="centerY" id="deg-HC-mnm"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="widthShadow">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="avatarView" destination="cnn-v1-XZf" id="MnI-od-vkp"/>
-                                            <outlet property="name" destination="uqf-0C-D9m" id="jpz-vc-urT"/>
-                                            <segue destination="Hmc-Qe-cak" kind="show" identifier="userSeque" id="z0q-1Q-gbc"/>
+                                            <outlet property="avatarView" destination="Qsz-yA-mkN" id="bih-fD-y4l"/>
+                                            <outlet property="name" destination="Y2V-U5-kCl" id="Nwk-Vy-gPO"/>
+                                            <segue destination="Hmc-Qe-cak" kind="show" identifier="userSeque" id="avO-ZK-EXm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -354,7 +382,7 @@
                                     <outlet property="delegate" destination="Xui-hI-MbW" id="P0H-Ta-wCE"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsu-aF-Xdv" customClass="CharPicker" customModule="lessson_2_1" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsu-aF-Xdv" customClass="CharPicker" customModule="lessson_2" customModuleProvider="target">
                                 <rect key="frame" x="384" y="108" width="30" height="685"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -366,7 +394,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wsu-aF-Xdv" firstAttribute="trailing" secondItem="1QE-0x-b0p" secondAttribute="trailing" id="LJJ-Eg-B9T"/>
-                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="trailing" secondItem="1QE-0x-b0p" secondAttribute="trailing" id="Oba-rf-RQH"/>
+                            <constraint firstItem="hes-KZ-oJ5" firstAttribute="trailing" secondItem="1QE-0x-b0p" secondAttribute="trailing" constant="-50" id="Oba-rf-RQH"/>
                             <constraint firstItem="1QE-0x-b0p" firstAttribute="bottom" secondItem="wsu-aF-Xdv" secondAttribute="bottom" constant="20" id="SUH-2U-ry2"/>
                             <constraint firstItem="wsu-aF-Xdv" firstAttribute="top" secondItem="1QE-0x-b0p" secondAttribute="top" constant="20" id="fY1-aa-uFd"/>
                             <constraint firstItem="hes-KZ-oJ5" firstAttribute="leading" secondItem="1QE-0x-b0p" secondAttribute="leading" id="nv6-Ny-oTV"/>

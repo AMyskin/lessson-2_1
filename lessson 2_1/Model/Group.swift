@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class Group: Equatable {
+struct Group: Equatable {
     static func == (lhs: Group, rhs: Group) -> Bool {
         return lhs.name == rhs.name &&
             lhs.image == rhs.image
@@ -16,10 +16,15 @@ class Group: Equatable {
     let name: String
     let image: UIImage
     
-    init(name: String, image: UIImage) {
-        self.name = name
-        self.image = image
-    }
-
-
+   
+    
+    static let testGroup: [Group] = [Group(name: "Группа 1", image: UIImage(named: "group1")!),
+                            Group(name: "Группа 2", image: UIImage(named: "group2")!),
+                            Group(name: "Группа 3", image: UIImage(named: "group3")!),
+                            Group(name: "Группа 4", image: UIImage(named: "group1")!),
+                            Group(name: "Группа 5", image: UIImage(named: "group2")!),
+                            Group(name: "Группа 6", image: UIImage(named: "group3")!)
+    ]
+    
+    
 }
