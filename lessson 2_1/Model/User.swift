@@ -6,6 +6,8 @@ public struct User {
     var name: String
     var image: [UIImage]
     
+    var newsTest : [NewsOfUser]
+    
     var avatar: UIImage? {
         return image.first
         
@@ -47,13 +49,12 @@ public struct User {
 }
 
 extension User : Comparable {
+    public static func == (lhs: User, rhs: User) -> Bool {
+        return (lhs.name == rhs.name) && (lhs.newsTest == rhs.newsTest)
+    }
+    
  
-    
 
-    
-
-
-   
     
     public static func < (lhs: User, rhs: User) -> Bool {
         lhs.name < rhs.name 

@@ -13,7 +13,7 @@ class FreindsCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!{
         didSet {
-                   self.name.textColor = UIColor.yellow
+                   self.name.textColor = UIColor.red
                }
     }
     
@@ -39,7 +39,8 @@ class FreindsCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+         self.addGradientBackground(firstColor: color, secondColor: .white)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,5 +48,7 @@ class FreindsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+  
     
 }

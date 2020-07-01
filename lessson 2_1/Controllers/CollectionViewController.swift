@@ -30,7 +30,10 @@ class CollectionViewController: UICollectionViewController {
     
     
     // MARK: UICollectionViewDataSource
-    
+    static func storyboardInstance() -> CollectionViewController? {
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             return storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as? CollectionViewController
+         }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

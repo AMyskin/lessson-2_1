@@ -58,6 +58,9 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
+        
         charPicker.delegate = self
         charPicker.chars = chars
         
@@ -80,7 +83,17 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     private func setupTableView() {
         tableView.register(UINib(nibName: "FreindsCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        let headerNib = UINib.init(nibName: "FriendsHeaderCell", bundle: Bundle.main)
+        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "FriendsHeaderCell")
     }
+    
+    static func storyboardInstance() -> CollectionViewController? {
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             return storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as? CollectionViewController
+         }
+    
+
+ 
     
     
     
@@ -94,18 +107,33 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
     }
     
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if isFiltering {
-            let char = filteredChars[section]
-            return char
-        }else {
-            let char = chars[section]
-            return char
-        }
-        
-        
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FriendsHeaderCell") as! FriendsHeaderCell
+            
+            headerView.headerTitle.text = filteredChars[section]
+            
+            return headerView
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+          return 40
+    }
+    
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//
+//
+//        if isFiltering {
+//            let char = filteredChars[section]
+//            return char
+//        }else {
+//            let char = chars[section]
+//            return char
+//        }
+//
+//
+//    }
     
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +150,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FreindsCell
         
+        
         let user: User
         
         if isFiltering {
@@ -137,6 +166,21 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         
         return cell
+    }
+    
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    let testVC = CollectionViewController.storyboardInstance()
+        
+        if isFiltering {
+            testVC?.userImage = filteredUsersWithSection[indexPath.section][indexPath.row].image
+        } else {
+            testVC?.userImage = userList[indexPath.section][indexPath.row].image
+        }
+        navigationController?.pushViewController(testVC!, animated: true)
+        
+   
     }
     
     
@@ -165,6 +209,14 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     
+    @IBAction func passData() {
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          guard let secondViewController = storyboard.instantiateViewController(identifier: "CollectionViewController") as? CollectionViewController else { return }
+       
+          
+          show(secondViewController, sender: nil)
+      }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -180,12 +232,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         } else {
             destination.userImage = userList[tableSection][tableRow].image
         }
-        
-        
-        
-        
-        
-        
+    
     }
     
     func filterContentForSearchText(_ searchText: String) {
@@ -257,5 +304,18 @@ extension FriendsVC: UISearchResultsUpdating {
         
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
+    }
+}
+
+extension UIView{
+    func addGradientBackground(firstColor: UIColor, secondColor: UIColor){
+        clipsToBounds = true
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
+        gradientLayer.frame = self.bounds
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        print(gradientLayer.frame)
+        self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
