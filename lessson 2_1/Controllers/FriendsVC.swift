@@ -74,7 +74,12 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         // 5
         definesPresentationContext = true
         
-        
+        setupTableView()
+    }
+    
+    
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "FreindsCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
     
     
@@ -115,7 +120,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FreindsCell
         
         let user: User
         

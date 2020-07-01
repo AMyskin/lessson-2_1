@@ -1,17 +1,16 @@
 //
-//  UserCell.swift
+//  FreindsCell.swift
 //  lessson 2_1
 //
-//  Created by Alexander Myskin on 20.06.2020.
+//  Created by Alexander Myskin on 01.07.2020.
 //  Copyright © 2020 Alexander Myskin. All rights reserved.
 //
 
 import UIKit
 
- class UserCell: UITableViewCell {
+class FreindsCell: UITableViewCell {
     
-   
-
+    
     @IBOutlet weak var name: UILabel!{
         didSet {
                    self.name.textColor = UIColor.yellow
@@ -36,7 +35,17 @@ import UIKit
         self.avatarView.avatarImage = nil
     }
     
+    
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
     
 }

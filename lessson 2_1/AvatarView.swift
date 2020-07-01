@@ -13,6 +13,7 @@ import UIKit
     var avatarImage: UIImage? = nil {
         didSet {
             imageView.image = avatarImage
+
         }
     }
     
@@ -67,6 +68,9 @@ import UIKit
             imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
             imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
         ])
+        
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 2
         
     }
     
