@@ -108,9 +108,16 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FriendsHeaderCell") as! FriendsHeaderCell
             
-            headerView.headerTitle.text = filteredChars[section]
-            
-            return headerView
+        headerView.headerTitle.text = filteredChars[section]
+        
+    
+        
+        
+        let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
+        
+        headerView.contentView.backgroundColor = color
+        
+        return headerView
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           return 40

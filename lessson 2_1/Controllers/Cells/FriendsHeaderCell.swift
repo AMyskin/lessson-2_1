@@ -21,8 +21,10 @@ class FriendsHeaderCell: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
          super.awakeFromNib()
-        let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        self.addGradientBackground(firstColor: .white, secondColor: color)
+        // let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        //self.addGradientBackground(firstColor: .systemFill, secondColor: color)
+        //let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
+        //self.backgroundColor = color
      }
 
 }

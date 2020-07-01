@@ -78,7 +78,7 @@ class NewsCell: UITableViewCell, LikeDelegate {
 //            //               imageView2.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
 //        ])
         
-        print("-----asd----- \(UIScreen.main.bounds) --------- \(bounds.size)")
+        //print("-----asd----- \(UIScreen.main.bounds) --------- \(bounds.size)")
         imageView2.layer.borderColor = UIColor.yellow.cgColor
         imageView2.layer.borderWidth = 2
         imageView2.contentMode = .scaleAspectFill
