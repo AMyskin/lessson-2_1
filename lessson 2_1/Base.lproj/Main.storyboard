@@ -197,7 +197,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6C-eg-oHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4362" y="1126"/>
+            <point key="canvasLocation" x="5368" y="1126"/>
         </scene>
         <!--Мои Группы-->
         <scene sceneID="CjW-Jv-lAK">
@@ -373,7 +373,6 @@
                                         <connections>
                                             <outlet property="avatarView" destination="Qsz-yA-mkN" id="bih-fD-y4l"/>
                                             <outlet property="name" destination="Y2V-U5-kCl" id="Nwk-Vy-gPO"/>
-                                            <segue destination="Hmc-Qe-cak" kind="show" identifier="userSeque" id="avO-ZK-EXm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -413,6 +412,40 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="y3o-Ye-x8R"/>
             </objects>
             <point key="canvasLocation" x="3479.7101449275365" y="1125.6696428571429"/>
+        </scene>
+        <!--NewsVC-->
+        <scene sceneID="dJE-7h-JII">
+            <objects>
+                <viewController storyboardIdentifier="NewsVC" id="KYO-6Q-ztO" customClass="NewsVC" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XAA-k8-sLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CRH-4e-bbH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KYO-6Q-ztO" id="2OX-YA-M7M"/>
+                                    <outlet property="delegate" destination="KYO-6Q-ztO" id="sTQ-46-UWZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="N2J-ZZ-7T1" firstAttribute="bottom" secondItem="CRH-4e-bbH" secondAttribute="bottom" id="R2Z-Lc-3mT"/>
+                            <constraint firstItem="N2J-ZZ-7T1" firstAttribute="trailing" secondItem="CRH-4e-bbH" secondAttribute="trailing" id="fZg-gZ-YQS"/>
+                            <constraint firstItem="CRH-4e-bbH" firstAttribute="top" secondItem="N2J-ZZ-7T1" secondAttribute="top" id="ovP-PK-hVI"/>
+                            <constraint firstItem="CRH-4e-bbH" firstAttribute="leading" secondItem="N2J-ZZ-7T1" secondAttribute="leading" id="qhR-FO-Rd7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N2J-ZZ-7T1"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="CRH-4e-bbH" id="C9G-00-aHk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zu4-KB-PW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4325" y="1126"/>
         </scene>
         <!--Добро пожаловать-->
         <scene sceneID="oF0-RT-rY4">

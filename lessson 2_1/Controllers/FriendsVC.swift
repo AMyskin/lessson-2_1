@@ -87,10 +87,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "FriendsHeaderCell")
     }
     
-    static func storyboardInstance() -> CollectionViewController? {
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-             return storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as? CollectionViewController
-         }
+  
     
 
  
@@ -171,12 +168,16 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    let testVC = CollectionViewController.storyboardInstance()
+    let testVC = NewsVC.storyboardInstance()
         
         if isFiltering {
-            testVC?.userImage = filteredUsersWithSection[indexPath.section][indexPath.row].image
+            //testVC?.userImage = filteredUsersWithSection[indexPath.section][indexPath.row].image
+            testVC?.userNews = filteredUsersWithSection[indexPath.section][indexPath.row].newsTest
+            testVC?.user = filteredUsersWithSection[indexPath.section][indexPath.row]
         } else {
-            testVC?.userImage = userList[indexPath.section][indexPath.row].image
+            //testVC?.userImage = userList[indexPath.section][indexPath.row].image
+             testVC?.userNews = userList[indexPath.section][indexPath.row].newsTest
+            testVC?.user = userList[indexPath.section][indexPath.row]
         }
         navigationController?.pushViewController(testVC!, animated: true)
         
@@ -211,7 +212,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     @IBAction func passData() {
           let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          guard let secondViewController = storyboard.instantiateViewController(identifier: "CollectionViewController") as? CollectionViewController else { return }
+          guard let secondViewController = storyboard.instantiateViewController(identifier: "NewsVC") as? NewsVC else { return }
        
           
           show(secondViewController, sender: nil)
@@ -219,21 +220,21 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "userSeque" else { return }
-        guard let destination = segue.destination as? CollectionViewController else { return }
-        guard let tableSection = tableView.indexPathForSelectedRow?.section else {return}
-        guard let tableRow = tableView.indexPathForSelectedRow?.row else {return}
-        
-        
-        
-        if isFiltering {
-            destination.userImage = filteredUsersWithSection[tableSection][tableRow].image
-        } else {
-            destination.userImage = userList[tableSection][tableRow].image
-        }
-    
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard segue.identifier == "userSeque" else { return }
+//        guard let destination = segue.destination as? CollectionViewController else { return }
+//        guard let tableSection = tableView.indexPathForSelectedRow?.section else {return}
+//        guard let tableRow = tableView.indexPathForSelectedRow?.row else {return}
+//
+//
+//
+//        if isFiltering {
+//            destination.userImage = filteredUsersWithSection[tableSection][tableRow].image
+//        } else {
+//            destination.userImage = userList[tableSection][tableRow].image
+//        }
+//
+//    }
     
     func filterContentForSearchText(_ searchText: String) {
         

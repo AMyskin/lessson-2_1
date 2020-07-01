@@ -30,6 +30,9 @@
 		0A74968124ACD939008EE3E3 /* FriendsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */; };
 		0A74968324ACD97F008EE3E3 /* FriendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */; };
 		0A74968524ACE9F3008EE3E3 /* newsOfUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968424ACE9F3008EE3E3 /* newsOfUser.swift */; };
+		0A74968724ACF6D6008EE3E3 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968624ACF6D6008EE3E3 /* NewsVC.swift */; };
+		0A74968A24ACF8B6008EE3E3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968824ACF8B6008EE3E3 /* NewsCell.swift */; };
+		0A74968B24ACF8B6008EE3E3 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74968924ACF8B6008EE3E3 /* NewsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeaderCell.swift; sourceTree = "<group>"; };
 		0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsHeaderCell.xib; sourceTree = "<group>"; };
 		0A74968424ACE9F3008EE3E3 /* newsOfUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsOfUser.swift; sourceTree = "<group>"; };
+		0A74968624ACF6D6008EE3E3 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		0A74968824ACF8B6008EE3E3 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		0A74968924ACF8B6008EE3E3 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				0A2339EF24A651C600290688 /* Cells */,
 				0A668DE324929BF800F860CB /* LoginViewController.swift */,
 				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
+				0A74968624ACF6D6008EE3E3 /* NewsVC.swift */,
 				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
 				0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */,
 				0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */,
@@ -100,6 +107,8 @@
 				0A2339D4249E39BA00290688 /* UserCell.swift */,
 				0A2339F624ACC9B900290688 /* FreindsCell.swift */,
 				0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */,
+				0A74968824ACF8B6008EE3E3 /* NewsCell.swift */,
+				0A74968924ACF8B6008EE3E3 /* NewsCell.xib */,
 				0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */,
 				0A2339F724ACC9B900290688 /* FreindsCell.xib */,
 				0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */,
@@ -200,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A74968B24ACF8B6008EE3E3 /* NewsCell.xib in Resources */,
 				0A668DEC24929BF900F860CB /* LaunchScreen.storyboard in Resources */,
 				0A668DE924929BF900F860CB /* Assets.xcassets in Resources */,
 				0A74968324ACD97F008EE3E3 /* FriendsHeaderCell.xib in Resources */,
@@ -216,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2339EB24A3B43E00290688 /* FriendsVC.swift in Sources */,
+				0A74968724ACF6D6008EE3E3 /* NewsVC.swift in Sources */,
 				0A2339F324AC77E700290688 /* Lorem.swift in Sources */,
 				0A74968524ACE9F3008EE3E3 /* newsOfUser.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
@@ -228,6 +239,7 @@
 				0A2339F124A72BD300290688 /* LikeView.swift in Sources */,
 				0A2339DB249E8E0E00290688 /* Group.swift in Sources */,
 				0A2339D5249E39BA00290688 /* UserCell.swift in Sources */,
+				0A74968A24ACF8B6008EE3E3 /* NewsCell.swift in Sources */,
 				0A2339D9249E57B200290688 /* UserCollectionViewCell.swift in Sources */,
 				0A2339D1249E2DC600290688 /* User.swift in Sources */,
 				0A2339DF249E8EAF00290688 /* AllGroupTableViewController.swift in Sources */,

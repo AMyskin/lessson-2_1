@@ -22,7 +22,7 @@ class LikeView: UIView {
             }
         }
         
-        var likesCount: Int = 999 {
+        var likesCount: Int = 99 {
             didSet {
                 countLabel.text = "\(likesCount)"
             }
@@ -76,8 +76,9 @@ class LikeView: UIView {
                 stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
             ])
             
-            stackView.addArrangedSubview(countLabel)
             stackView.addArrangedSubview(likeButton)
+            stackView.addArrangedSubview(countLabel)
+            
         }
         
         // MARK: - Actions
