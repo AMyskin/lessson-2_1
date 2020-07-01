@@ -43,12 +43,16 @@ class CollectionViewController: UICollectionViewController {
         
         
         
+        
+        
         cell.image.image = userImage[indexPath.row]
         
         
         return cell
     }
     
+    
+
     
     
 }

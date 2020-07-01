@@ -16,13 +16,27 @@ protocol CharDelegate: class {
 class CharPicker: UIView {
     
     weak var delegate: CharDelegate?
-
+    
+    var chars: [String] = "abcdefghijklmnopqrstuvwxyz".map { String($0) } {
+        didSet {
+            setupButtons()
+        }
+    }
+    
     // MARK: - Views
     
-    var chars: [String] = User.sections
+    var buttons: [UIButton] = []
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
     
-    private var buttons: [UIButton] = []
-    private var stackView: UIStackView!
+    private var lastPressedButton: UIButton?
     
     // MARK: - Init
     
@@ -36,50 +50,82 @@ class CharPicker: UIView {
         setup()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        stackView.frame = bounds
-    }
+
     
     private func setup() {
-        for char in chars {
-            let button = UIButton(type: .system)
-            button.setTitle(char, for: .normal)
-            button.addTarget(self, action: #selector(selectChar(_:)), for: .touchUpInside)
-            buttons.append(button)
-        }
-        
-        stackView = UIStackView(arrangedSubviews: buttons)
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.distribution = .equalSpacing
+        setupButtons()
         
         addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
+        ])
         
-        let pan = UIPanGestureRecognizer()
-        pan.addTarget(self, action: #selector(panRecognizer))
-        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(panRecognizer))
         addGestureRecognizer(pan)
-        
+
     }
     
-    @objc func panRecognizer(recognizer: UIPanGestureRecognizer){
-        print(#function)
+    private func setupButtons() {
+        buttons.forEach { $0.removeFromSuperview() }
+        buttons = []
+        lastPressedButton = nil
+        
+        for char in chars {
+            let button = UIButton(type: .system)
+            button.setTitle(char.uppercased(), for: .normal)
+            button.addTarget(self, action: #selector(charTapped), for: .touchDown)
+            buttons.append(button)
+            //            button.layer.borderWidth = 1
+            //            button.layer.borderColor = UIColor.red.cgColor
+            stackView.addArrangedSubview(button)
+            button.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        }
     }
     
-    @objc func selectChar(_ sender: UIButton) {
-        guard
-            let index = buttons.firstIndex(of: sender)
-            
-            else { return }
+  
+
+    
+    @objc func panRecognizer(_ recognizer: UIPanGestureRecognizer) {
         
-        let char = chars[index]
+        let anchorPoint = recognizer.location(in: stackView)
+        //print(anchorPoint)
+        let buttonHeight = stackView.bounds.height / CGFloat(buttons.count)
+        //print(buttonHeight)
+        //print(buttons.count)
+        var buttonIndex = Int(anchorPoint.y / buttonHeight)
+        unhiglightButtons()
+        if buttonIndex >= buttons.count {
+            buttonIndex = buttons.count-1
+        } else  if buttonIndex < 0 {
+            buttonIndex = 0
+        }
+        let button = buttons[buttonIndex]
+        button.isHighlighted = true
+        charTapped(button)
         
+        if recognizer.state == .ended {
+            unhiglightButtons()
+        }
+        
+
+    }
+    
+    private func unhiglightButtons() {
+        buttons.forEach { $0.isHighlighted = false }
+    }
+
+    
+    @objc func charTapped(_ sender: UIButton) {
+        guard lastPressedButton != sender else { return }
+        lastPressedButton = sender
+        let char = sender.title(for: .normal) ?? ""
         delegate?.charPushed(char: char)
         
         
     }
-
- 
+    
+    
     
 }
