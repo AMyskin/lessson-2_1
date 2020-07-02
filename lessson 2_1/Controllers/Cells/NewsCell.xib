@@ -82,6 +82,9 @@
                             <constraint firstAttribute="width" constant="23" id="xHm-q6-0QK"/>
                         </constraints>
                         <state key="normal" image="text.bubble.fill" catalog="system"/>
+                        <connections>
+                            <action selector="comentButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tuw-4L-G30"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-15-Pxa">
                         <rect key="frame" x="204" y="327" width="21" height="22"/>
@@ -90,6 +93,9 @@
                             <constraint firstAttribute="height" constant="22" id="9sr-mY-lnx"/>
                         </constraints>
                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                        <connections>
+                            <action selector="replyButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ugi-Y1-GKK"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

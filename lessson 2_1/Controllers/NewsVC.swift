@@ -8,7 +8,9 @@
 
 import UIKit
 
-class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NewsDelegate {
+
+    
 
     var userNews : [NewsOfUser] = []
     var user : User!
@@ -21,13 +23,16 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         setupTableView()
         
+        
      
         // Do any additional setup after loading the view.
     }
     
     static func storyboardInstance() -> NewsVC? {
                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-               return storyboard.instantiateViewController(withIdentifier: "NewsVC") as? NewsVC
+                let cell = storyboard.instantiateViewController(withIdentifier: "NewsVC") as? NewsVC
+        
+               return cell
            }
     
     private func setupTableView() {
@@ -71,10 +76,28 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.newsText.text = user.newsTest[indexPath.row].newsTest
        
         cell.countOfViewsLabel.text = String(Int.random(in: 1 ... 1000))
+        cell.delegate = self
         
         //cell.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
          return cell
      }
+    
+    func errorFunc() {
+        print(#function)
+        showErrorAlert()
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(
+            title: "Under Conctruction",
+            message: "Данный функционал в разработке",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
 
 }

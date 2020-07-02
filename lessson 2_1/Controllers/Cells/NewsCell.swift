@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol NewsDelegate: class {
+    func errorFunc()
+}
+
 class NewsCell: UITableViewCell, LikeDelegate {
     func likeEnabled(isLiked: Bool) {
          print(isLiked)
     }
+    
+    weak var delegate: NewsDelegate?
     
     
     var imageView2 = UIImageView()
@@ -24,9 +30,17 @@ class NewsCell: UITableViewCell, LikeDelegate {
     
     @IBOutlet weak var newsDateLabel: UILabel!
     
+    @IBAction func replyButtonPushed(_ sender: UIButton) {
+        print(#function)
+        delegate?.errorFunc()
+    }
     
     @IBOutlet weak var newsText: UITextView!
     
+    @IBAction func comentButtonPushed(_ sender: UIButton) {
+        print(#function)
+        delegate?.errorFunc()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -107,6 +121,9 @@ class NewsCell: UITableViewCell, LikeDelegate {
               //               imageView2.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
           ])
         }
+    
+    
+    
     
 
      
