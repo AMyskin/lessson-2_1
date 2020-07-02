@@ -81,6 +81,11 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     
+   
+        
+    
+    
+    
     private func setupTableView() {
         tableView.register(UINib(nibName: "FreindsCell", bundle: nil), forCellReuseIdentifier: "Cell")
         let headerNib = UINib.init(nibName: "FriendsHeaderCell", bundle: Bundle.main)
@@ -168,6 +173,10 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         cell.name.text = user.name
         cell.avatarView.avatarImage = user.avatar
         
+        let animation = AnimationFactory.makeSlideIn(duration: 1, delayFactor: 0.01)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
+        
         
         return cell
     }
@@ -179,11 +188,11 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         if isFiltering {
             //testVC?.userImage = filteredUsersWithSection[indexPath.section][indexPath.row].image
-            testVC?.userNews = filteredUsersWithSection[indexPath.section][indexPath.row].newsTest
+           // testVC?.userNews = filteredUsersWithSection[indexPath.section][indexPath.row].newsTest
             testVC?.user = filteredUsersWithSection[indexPath.section][indexPath.row]
         } else {
             //testVC?.userImage = userList[indexPath.section][indexPath.row].image
-             testVC?.userNews = userList[indexPath.section][indexPath.row].newsTest
+            // testVC?.userNews = userList[indexPath.section][indexPath.row].newsTest
             testVC?.user = userList[indexPath.section][indexPath.row]
         }
         navigationController?.pushViewController(testVC!, animated: true)

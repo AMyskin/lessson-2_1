@@ -67,6 +67,9 @@ class LikeView: UIView {
         }
         
         private func setup() {
+            
+            
+        
             addSubview(stackView)
             
             NSLayoutConstraint.activate([
@@ -82,6 +85,10 @@ class LikeView: UIView {
         }
         
         // MARK: - Actions
+    
+ 
+
+ 
         
         @objc func likeButtonTapped(_ sender: UIButton) {
             isLiked.toggle()
@@ -90,8 +97,16 @@ class LikeView: UIView {
         
         private func updateLike() {
             let imageName = isLiked ? "heart.fill" : "heart"
-            likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-            likesCount = isLiked ? likesCount + 1 : likesCount - 1
+            
+            UIView.transition(with: likeButton,
+                              duration: 0.4,
+                              options: .transitionFlipFromTop,
+                              animations: {
+                                self.likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+            })
+            
+            //likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+          //  likesCount = isLiked ? likesCount + 1 : likesCount - 1
 //            print (self.frame)
 //            if likesCount >= 1000 {
 //               self.frame = CGRect(x: 135, y: 170, width: 70, height: self.frame.height)

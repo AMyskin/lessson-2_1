@@ -10,25 +10,31 @@ import UIKit
 
 protocol NewsDelegate: class {
     func errorFunc()
+    func likeNews(isLiked: Bool)
+    func buttonTapped(cell: NewsCell)
 }
 
 class NewsCell: UITableViewCell, LikeDelegate {
+    
     func likeEnabled(isLiked: Bool) {
-         print(isLiked)
+         print("news \(isLiked)")
+        delegate?.likeNews(isLiked: isLiked )
+        self.delegate?.buttonTapped(cell: self)
+        likeControl.likesCount = isLiked ? likeControl.likesCount + 1 : likeControl.likesCount - 1
+        
     }
     
     weak var delegate: NewsDelegate?
     
+    @IBOutlet weak var newsImageView: UIImageView!
     
-    var imageView2 = UIImageView()
+   // var imageView2 = UIImageView()
     @IBOutlet weak var likeControl: LikeView!
     @IBOutlet weak var countOfViewsLabel: UILabel!
-    
     @IBOutlet weak var avatarView: AvatarView!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var newsDateLabel: UILabel!
+    @IBOutlet weak var newsTextLabel: UILabel!
     
     @IBAction func replyButtonPushed(_ sender: UIButton) {
         print(#function)
@@ -38,8 +44,9 @@ class NewsCell: UITableViewCell, LikeDelegate {
     @IBOutlet weak var newsText: UITextView!
     
     @IBAction func comentButtonPushed(_ sender: UIButton) {
-        print(#function)
+        //print(#function)
         delegate?.errorFunc()
+       // self.delegate?.buttonTapped(cell: self)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,71 +62,50 @@ class NewsCell: UITableViewCell, LikeDelegate {
     
     override func prepareForReuse() {
          super.prepareForReuse()
-         self.userNameLabel.text = nil
-         self.newsText.text = nil
-         self.newsDateLabel.text = nil
-         self.avatarView.avatarImage = nil
-     }
+            userNameLabel.text = nil
+            newsDateLabel.text = nil
+            newsTextLabel.text = nil
+            countOfViewsLabel.text = nil
+            avatarView.avatarImage = nil
+            likeControl.likesCount = 0
+            likeControl.isLiked = false
+            newsImageView.image = nil
+
+  
+    }
+    
+    func configure(model: NewsOfUser) {
+        userNameLabel.text = model.author
+        newsDateLabel.text = model.userDate.description
+        newsTextLabel.text = model.newsTest
+        countOfViewsLabel.text = String(model.countOfViews)
+        avatarView.avatarImage = model.image.first
+        likeControl.likesCount = model.countOfLike
+        print(String(model.countOfLike))
+        likeControl.isLiked = model.isLiked
+        newsImageView.image = model.image.first
+      
+        
+    }
     
 
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    private func setup() {
-        
-        
-          
-           
-        addSubview(imageView2)
-        
-        imageView2.translatesAutoresizingMaskIntoConstraints = false
-        // cell.imageView?.widthAnchor.constraint(equalToConstant: self.view.frame.size.width/2).isActive = true
-        // cell.imageView?.heightAnchor.constraint(equalToConstant: self.view.frame.size.width/2).isActive = true
-//
-//        NSLayoutConstraint.activate([
-//            imageView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-//            imageView2.topAnchor.constraint(equalTo: newsText.bottomAnchor, constant: 110),
-//            imageView2.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-//            imageView2.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
-//
-//
-//            //               imageView2.topAnchor.constraint(equalTo: topAnchor, constant: 300),
-//            //               imageView2.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 100),
-//            //               imageView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-//            //               imageView2.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
-//        ])
-        
-        //print("-----asd----- \(UIScreen.main.bounds) --------- \(bounds.size)")
-        imageView2.layer.borderColor = UIColor.yellow.cgColor
-        imageView2.layer.borderWidth = 2
-        imageView2.contentMode = .scaleAspectFill
-        imageView2.clipsToBounds = true
-        
-        
-        
-       }
+
     
     override func layoutSubviews() {
             super.layoutSubviews()
              likeControl.delegate = self
         
         
-          NSLayoutConstraint.activate([
-              imageView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-              imageView2.topAnchor.constraint(equalTo: newsText.bottomAnchor, constant: 20),
-              imageView2.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-              imageView2.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
-              
-              
-             
-              //               imageView2.topAnchor.constraint(equalTo: topAnchor, constant: 300),
-              //               imageView2.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 100),
-              //               imageView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-              //               imageView2.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
-          ])
+//          NSLayoutConstraint.activate([
+//              imageView2.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+//              imageView2.topAnchor.constraint(equalTo: newsText.bottomAnchor, constant: 20),
+//              imageView2.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+//              imageView2.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+//              
+//              
+//      
+//          ])
         }
     
     

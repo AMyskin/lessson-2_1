@@ -9,10 +9,11 @@
 import UIKit
 
 class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NewsDelegate {
+    
 
     
 
-    var userNews : [NewsOfUser] = []
+
     var user : User!
     
     
@@ -37,27 +38,16 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     private func setupTableView() {
         
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 200
+
         
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
         tableView.allowsSelection = false
         
 
-
-        
-//        
-//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//             return UITableView.automaticDimension
-//         }
-            
-        
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 600.0
-    }
+        
+        
+ 
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,28 +56,56 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+                
+        cell.configure(model: user.newsTest[indexPath.row])
         
-        cell.imageView2.image = user.newsTest[indexPath.row].image[0]
-       // cell.imageView?.widthAnchor.constraint(equalToConstant: self.view.frame.size.width/2).isActive = true
-       // cell.imageView?.heightAnchor.constraint(equalToConstant: self.view.frame.size.width/2).isActive = true
-        cell.avatarView.avatarImage = user.avatar
-        cell.userNameLabel.text = user.name
-        cell.newsDateLabel.text = user.newsTest[indexPath.row].userDate.description
-        cell.newsText.text = user.newsTest[indexPath.row].newsTest
-       
-        cell.countOfViewsLabel.text = String(Int.random(in: 1 ... 1000))
+        
+        
+         
         cell.delegate = self
         
-        //cell.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
          return cell
      }
+    
+    
+    
+    
+    
+    
+    func buttonTapped(cell: NewsCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else {
+            // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
+            return
+        }
+
+        user.newsTest[indexPath.row].isLiked.toggle()
+        
+        let likesCount = user.newsTest[indexPath.row].countOfLike
+        
+        user.newsTest[indexPath.row].countOfLike = user.newsTest[indexPath.row].isLiked ? likesCount + 1 : likesCount - 1
+
+        print("Button tapped on row \(indexPath.row) new countOfLike = \(user.newsTest[indexPath.row].countOfLike)")
+    }
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
     
     func errorFunc() {
         print(#function)
         showErrorAlert()
     }
-    
+    func likeNews(isLiked: Bool) {
+        print("like \(isLiked)")
+    }
+
     func showErrorAlert() {
         let alert = UIAlertController(
             title: "Under Conctruction",

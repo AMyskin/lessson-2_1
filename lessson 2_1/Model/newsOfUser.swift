@@ -9,11 +9,21 @@
 import UIKit
 
 public struct NewsOfUser: Equatable {
+    var author: String
     var image: [UIImage]
     var userDate : NSDate
     var newsTest : String
+    var countOfViews : Int
+    var countOfLike : Int
+    var isLiked : Bool
     
     public static func == (lhs: NewsOfUser, rhs: NewsOfUser) -> Bool {
-            return lhs.newsTest == rhs.newsTest && lhs.userDate == rhs.userDate
-       }
+        return lhs.newsTest == rhs.newsTest
+            && lhs.userDate == rhs.userDate
+            && lhs.countOfViews == rhs.countOfViews
+            && lhs.countOfLike == rhs.countOfLike
+            && lhs.image == rhs.image
+            && lhs.author == rhs.author
+            && lhs.isLiked == rhs.isLiked
+    }
 }
