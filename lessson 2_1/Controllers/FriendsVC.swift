@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate {
+class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate, FreindsCellDelegate {
+
+    
     
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -172,10 +174,16 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         cell.name.text = user.name
         cell.avatarView.avatarImage = user.avatar
+        //cell.avatarButton.setImage(user.avatar, for: .normal)
         
         let animation = AnimationFactory.makeSlideIn(duration: 1, delayFactor: 0.01)
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
+        
+        cell.delegate = self
+        
+
+        
         
         
         return cell
@@ -213,6 +221,23 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         tableView.scrollToRow(at: IndexPath(row: 0, section: section),
                               at: .top,
                               animated: false)
+    }
+    
+    
+    func buttonTapped(cell: FreindsCell, button: UIButton) {
+        //guard let indexPath = self.tableView.indexPath(for: cell) else {return}
+              //print("buttonTapped")
+             
+                       let pulse = CASpringAnimation(keyPath: "transform.scale")
+                       pulse.duration = 0.6
+                       pulse.fromValue = 0.8
+                       pulse.toValue = 1
+                       pulse.initialVelocity = 0.5
+                       pulse.damping = 1
+                       
+                       button.layer.add(pulse, forKey: nil)
+              
+           
     }
     
     

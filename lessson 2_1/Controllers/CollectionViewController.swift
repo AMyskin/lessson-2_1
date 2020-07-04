@@ -21,6 +21,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(userImage.count)
         
         
     }
@@ -42,7 +43,7 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserCollectionViewCell
         
         
         
@@ -52,6 +53,25 @@ class CollectionViewController: UICollectionViewController {
         
         
         return cell
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(
+//            width: collectionView.bounds.width ,
+//            height: collectionView.bounds.height
+//        )
+//    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width =  CGFloat(414)
+        let height = CGFloat(414)
+        
+        print ("-------asdfasdfasdf------\(UIScreen.main.bounds) ------------\(collectionView.layer.bounds)")
+        return CGSize(width: (width/5.5), height: (height/4.5))
+
+
     }
     
     

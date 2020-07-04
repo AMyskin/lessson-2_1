@@ -14,7 +14,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var customAvtivityView: CustomActivitiIndicator!
+    
     @IBAction func signinPressed(_ sender: UIButton){
+        customAvtivityView.stopAnimate()
         guard let login = loginTextField.text, let password = passwordTextField.text else {return}
         if login == "admin" && password == "123" {
             print("Ура, успешная авторизация")
@@ -23,6 +26,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         loginTextField.text = ""
         passwordTextField.text = ""
+        
+       
 
     }
 

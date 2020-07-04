@@ -8,7 +8,13 @@
 
 import UIKit
 
-class AllGroupTableViewController: UITableViewController {
+class AllGroupTableViewController: UITableViewController, GroupCellDelegate {
+
+    
+ 
+    
+
+    
     
     
     var allGroupList = Group.testGroup
@@ -39,6 +45,7 @@ class AllGroupTableViewController: UITableViewController {
 
         cell.name.text = allGroupList[indexPath.row].name
         cell.avatarView.avatarImage = allGroupList[indexPath.row].image
+        cell.delegate = self
 
         return cell
     }
@@ -51,49 +58,22 @@ class AllGroupTableViewController: UITableViewController {
        }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  func buttonTapped(cell: GroupCell, button: UIButton) {
+       //guard let indexPath = self.tableView.indexPath(for: cell) else {return}
+        
+            
+                      let pulse = CASpringAnimation(keyPath: "transform.scale")
+                      pulse.duration = 0.6
+                      pulse.fromValue = 0.8
+                      pulse.toValue = 1
+                      pulse.initialVelocity = 0.5
+                      pulse.damping = 1
+                      
+                      button.layer.add(pulse, forKey: nil)
+             
+          
+   }
 
 }

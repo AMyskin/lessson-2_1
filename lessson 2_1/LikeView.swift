@@ -8,8 +8,11 @@
 
 import UIKit
 
+
+
 protocol LikeDelegate: class {
     func likeEnabled(isLiked: Bool)
+      
 }
 
 class LikeView: UIView {

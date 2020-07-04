@@ -8,8 +8,20 @@
 
 import UIKit
 
-class FreindsCell: UITableViewCell {
+
+protocol FreindsCellDelegate: class {
+
+    func buttonTapped(cell: FreindsCell, button : UIButton)
     
+}
+
+class FreindsCell: UITableViewCell, AvatarViewDelegate {
+
+    
+    
+    weak var delegate: FreindsCellDelegate?
+    
+
     
     @IBOutlet weak var name: UILabel!{
         didSet {
@@ -17,22 +29,29 @@ class FreindsCell: UITableViewCell {
                }
     }
     
-
+ 
+    
     @IBOutlet weak var avatarView: AvatarView!
     
+
+    
+    func buttonTapped(button: UIButton) {
+        //print("FreindsCell")
+        delegate?.buttonTapped(cell: self, button: button)
+    }
     
 
     func configure(name: String, emblem: UIImage) {
+        
         self.name.text = name
         self.avatarView.avatarImage = emblem
-        
         self.backgroundColor = UIColor.black
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         self.name.text = nil
-        self.avatarView.avatarImage = nil
+        //self.avatarView.avatarImage = nil
     }
     
     
@@ -46,7 +65,7 @@ class FreindsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        avatarView.delegate = self
         // Configure the view for the selected state
     }
     

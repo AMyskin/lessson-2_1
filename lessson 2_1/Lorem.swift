@@ -166,35 +166,9 @@ public final class Lorem {
         return "\(firstName) \(lastName)"
     }
     
-    public static var userNewsTest: NewsOfUser {
-           let userImsages = [allImages.randomElement()!,
-                                allImages.randomElement()!,
-                                allImages.randomElement()!,
-                                allImages.randomElement()!,
-                                allImages.randomElement()!]
-         let  userDate = NSDate()
-        let  newsTest = "\(paragraph)"
-        return NewsOfUser(image: userImsages, userDate: userDate, newsTest: newsTest)
-    }
-    
-    public static var fullNameUser: User {
-        
-        let userName = "\(firstName) \(lastName)"
-        let userImsages = [allImages.randomElement()!,
-                           allImages.randomElement()!,
-                           allImages.randomElement()!,
-                           allImages.randomElement()!,
-                           allImages.randomElement()!]
-        
-         let  newsTest = [userNewsTest,userNewsTest,userNewsTest,userNewsTest]
-        
-        
-        
-        return  User(name: userName,
-                     image: userImsages,newsTest: newsTest)
-
   
-     }
+    
+    
     
     // ======================================================= //
     // MARK: - Email Addresses & URLs
@@ -286,18 +260,6 @@ extension Lorem {
     fileprivate static let shortTweetMaxLength = 140
     fileprivate static let tweetMaxLength = 280
    
-    fileprivate static let allImages = [UIImage(named: "user1")!,
-                                        UIImage(named: "user1_2")!,
-                                        UIImage(named: "user1_3")!,
-                                        UIImage(named: "user2")!,
-                                        UIImage(named: "user2_2")!,
-                                        UIImage(named: "user2_3")!,
-                                        UIImage(named: "user3")!,
-                                        UIImage(named: "user3_2")!,
-                                        UIImage(named: "user3_3")!
-    
-    
-    ]
     
     fileprivate static let allWords = ["alias", "consequatur", "aut", "perferendis", "sit", "voluptatem", "accusantium", "doloremque", "aperiam", "eaque", "ipsa", "quae", "ab", "illo", "inventore", "veritatis", "et", "quasi", "architecto", "beatae", "vitae", "dicta", "sunt", "explicabo", "aspernatur", "aut", "odit", "aut", "fugit", "sed", "quia", "consequuntur", "magni", "dolores", "eos", "qui", "ratione", "voluptatem", "sequi", "nesciunt", "neque", "dolorem", "ipsum", "quia", "dolor", "sit", "amet", "consectetur", "adipisci", "velit", "sed", "quia", "non", "numquam", "eius", "modi", "tempora", "incidunt", "ut", "labore", "et", "dolore", "magnam", "aliquam", "quaerat", "voluptatem", "ut", "enim", "ad", "minima", "veniam", "quis", "nostrum", "exercitationem", "ullam", "corporis", "nemo", "enim", "ipsam", "voluptatem", "quia", "voluptas", "sit", "suscipit", "laboriosam", "nisi", "ut", "aliquid", "ex", "ea", "commodi", "consequatur", "quis", "autem", "vel", "eum", "iure", "reprehenderit", "qui", "in", "ea", "voluptate", "velit", "esse", "quam", "nihil", "molestiae", "et", "iusto", "odio", "dignissimos", "ducimus", "qui", "blanditiis", "praesentium", "laudantium", "totam", "rem", "voluptatum", "deleniti", "atque", "corrupti", "quos", "dolores", "et", "quas", "molestias", "excepturi", "sint", "occaecati", "cupiditate", "non", "provident", "sed", "ut", "perspiciatis", "unde", "omnis", "iste", "natus", "error", "similique", "sunt", "in", "culpa", "qui", "officia", "deserunt", "mollitia", "animi", "id", "est", "laborum", "et", "dolorum", "fuga", "et", "harum", "quidem", "rerum", "facilis", "est", "et", "expedita", "distinctio", "nam", "libero", "tempore", "cum", "soluta", "nobis", "est", "eligendi", "optio", "cumque", "nihil", "impedit", "quo", "porro", "quisquam", "est", "qui", "minus", "id", "quod", "maxime", "placeat", "facere", "possimus", "omnis", "voluptas", "assumenda", "est", "omnis", "dolor", "repellendus", "temporibus", "autem", "quibusdam", "et", "aut", "consequatur", "vel", "illum", "qui", "dolorem", "eum", "fugiat", "quo", "voluptas", "nulla", "pariatur", "at", "vero", "eos", "et", "accusamus", "officiis", "debitis", "aut", "rerum", "necessitatibus", "saepe", "eveniet", "ut", "et", "voluptates", "repudiandae", "sint", "et", "molestiae", "non", "recusandae", "itaque", "earum", "rerum", "hic", "tenetur", "a", "sapiente", "delectus", "ut", "aut", "reiciendis", "voluptatibus", "maiores", "doloribus", "asperiores", "repellat"]
 

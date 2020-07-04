@@ -10,8 +10,9 @@ import UIKit
 
 public struct NewsOfUser: Equatable {
     var author: String
+    var avatar: UIImage? 
     var image: [UIImage]
-    var userDate : NSDate
+    var userDate : String
     var newsTest : String
     var countOfViews : Int
     var countOfLike : Int
@@ -25,5 +26,6 @@ public struct NewsOfUser: Equatable {
             && lhs.image == rhs.image
             && lhs.author == rhs.author
             && lhs.isLiked == rhs.isLiked
+         && lhs.avatar == rhs.avatar
     }
 }

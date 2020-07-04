@@ -88,11 +88,22 @@
                                             <constraint firstItem="V7c-aR-WR7" firstAttribute="top" secondItem="HST-re-Wia" secondAttribute="top" constant="20" id="obi-h4-fUP"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gt-Ji-4f0" customClass="CustomActivitiIndicator" customModule="lessson_2" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="693" width="374" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="l1C-iX-BWv"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="HST-re-Wia" firstAttribute="leading" secondItem="R0b-cZ-cNN" secondAttribute="leading" id="FHH-p4-x7n"/>
                                     <constraint firstAttribute="bottom" secondItem="HST-re-Wia" secondAttribute="bottom" id="IQy-V1-p7v"/>
+                                    <constraint firstItem="B7l-xL-n9E" firstAttribute="trailing" secondItem="2Gt-Ji-4f0" secondAttribute="trailing" constant="20" id="ITi-SG-4JV"/>
+                                    <constraint firstItem="B7l-xL-n9E" firstAttribute="bottom" secondItem="2Gt-Ji-4f0" secondAttribute="bottom" constant="100" id="ofS-f1-xPv"/>
+                                    <constraint firstItem="2Gt-Ji-4f0" firstAttribute="leading" secondItem="B7l-xL-n9E" secondAttribute="leading" constant="20" id="tH6-eM-nhe"/>
                                     <constraint firstAttribute="trailing" secondItem="HST-re-Wia" secondAttribute="trailing" id="zJd-tQ-np7"/>
                                     <constraint firstItem="HST-re-Wia" firstAttribute="top" secondItem="R0b-cZ-cNN" secondAttribute="top" id="ziE-6J-DHo"/>
                                 </constraints>
@@ -103,7 +114,6 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R0b-cZ-cNN" secondAttribute="trailing" id="KjO-Ry-hy6"/>
                             <constraint firstItem="R0b-cZ-cNN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RGJ-Qd-hVS"/>
@@ -115,6 +125,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AIu-KL-G5o"/>
                     <connections>
+                        <outlet property="customAvtivityView" destination="2Gt-Ji-4f0" id="UOE-ay-eQu"/>
                         <outlet property="loginTextField" destination="mES-2q-g1w" id="KBs-8i-IPV"/>
                         <outlet property="passwordTextField" destination="XUi-pH-Ywb" id="wPf-RW-0TT"/>
                         <outlet property="scrollView" destination="R0b-cZ-cNN" id="JYF-Jh-4uB"/>
@@ -133,58 +144,59 @@
         <scene sceneID="IkD-RO-w5G">
             <objects>
                 <collectionViewController storyboardIdentifier="CollectionViewController" id="Hmc-Qe-cak" customClass="CollectionViewController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lCZ-vS-FZU">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="lCZ-vS-FZU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eb8-qy-63U">
-                            <size key="itemSize" width="200" height="200"/>
-                            <size key="estimatedItemSize" width="200" height="200"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="eb8-qy-63U">
+                            <size key="itemSize" width="414" height="696"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Bfo-4F-8ZI" customClass="UserCollectionViewCell" customModule="lessson_2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="bEv-xD-Xnn" customClass="UserCollectionViewCell" customModule="lessson_2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="414" height="696"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tdf-fF-MfJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LuO-eg-0oE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zwQ-Xg-ghr">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="P8V-Lc-LHp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cin-iP-MYy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36b-Yu-nbf" customClass="LikeView" customModule="lessson_2" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="666" width="60" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Rux-Ic-b8A"/>
+                                                        <constraint firstAttribute="height" constant="30" id="uHz-50-XW1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="200" id="M6L-za-pNj"/>
-                                                <constraint firstAttribute="height" constant="200" id="VYz-4A-9Ui"/>
+                                                <constraint firstItem="36b-Yu-nbf" firstAttribute="leading" secondItem="P8V-Lc-LHp" secondAttribute="leading" id="3Bx-xD-oX9"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cin-iP-MYy" secondAttribute="trailing" id="6Hr-KR-7nC"/>
+                                                <constraint firstItem="Cin-iP-MYy" firstAttribute="leading" secondItem="P8V-Lc-LHp" secondAttribute="leading" id="RgW-Zr-nzk"/>
+                                                <constraint firstItem="Cin-iP-MYy" firstAttribute="top" secondItem="P8V-Lc-LHp" secondAttribute="top" id="Ztv-GN-2gD"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cin-iP-MYy" secondAttribute="bottom" constant="40" id="gDR-wF-GnF"/>
+                                                <constraint firstAttribute="bottom" secondItem="36b-Yu-nbf" secondAttribute="bottom" id="xiS-5b-bpv"/>
                                             </constraints>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" id="AUF-M2-flI" customClass="LikeView" customModule="lessson_2" customModuleProvider="target">
-                                            <rect key="frame" x="135" y="170" width="65" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="0oi-ge-mbx"/>
-                                                <constraint firstAttribute="height" constant="30" id="CcP-xj-Vex"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isLiked" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="likesCount">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zwQ-Xg-ghr" firstAttribute="centerY" secondItem="tdf-fF-MfJ" secondAttribute="centerY" id="Qei-iX-qOu"/>
-                                        <constraint firstItem="zwQ-Xg-ghr" firstAttribute="centerX" secondItem="tdf-fF-MfJ" secondAttribute="centerX" id="aS2-ib-RkD"/>
+                                        <constraint firstItem="P8V-Lc-LHp" firstAttribute="top" secondItem="LuO-eg-0oE" secondAttribute="top" id="7mU-Ie-2lo"/>
+                                        <constraint firstAttribute="trailing" secondItem="P8V-Lc-LHp" secondAttribute="trailing" id="R5C-Fc-qa3"/>
+                                        <constraint firstAttribute="bottom" secondItem="P8V-Lc-LHp" secondAttribute="bottom" id="S8p-Oh-VGL"/>
+                                        <constraint firstItem="P8V-Lc-LHp" firstAttribute="leading" secondItem="LuO-eg-0oE" secondAttribute="leading" id="XPC-Sw-z7u"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="200" height="200"/>
                                 <connections>
-                                    <outlet property="image" destination="zwQ-Xg-ghr" id="WRF-hT-TGK"/>
-                                    <outlet property="likeControl" destination="AUF-M2-flI" id="RcZ-0Z-eQs"/>
+                                    <outlet property="image" destination="Cin-iP-MYy" id="N40-Ei-88N"/>
+                                    <outlet property="likeControl" destination="36b-Yu-nbf" id="dJq-Zl-I9P"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -197,7 +209,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6C-eg-oHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5368" y="1126"/>
+            <point key="canvasLocation" x="5366.666666666667" y="1125.6696428571429"/>
         </scene>
         <!--Мои Группы-->
         <scene sceneID="CjW-Jv-lAK">
