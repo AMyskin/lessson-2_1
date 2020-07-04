@@ -10,8 +10,8 @@ import UIKit
 
 class UserCollectionViewCell: UICollectionViewCell, LikeDelegate {
     func likeEnabled(isLiked: Bool) {
-        print(#function)
-        print(isLiked)
+        //print(#function)
+        //print(isLiked)
     }
     
     

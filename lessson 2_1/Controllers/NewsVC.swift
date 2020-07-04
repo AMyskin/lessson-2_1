@@ -66,48 +66,34 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         guard let cell = cell as? NewsCell else {return}
         cell.setCollectionDelegate(self, for: indexPath.row)
         
-//        cell.collectionView.alpha = 1
+
+
+    }
+// MARK: - Как я понял данный метод не подходит для анимации
+    
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        guard let cell = cell as? NewsCell else {return}
 //
-//        let animation = CABasicAnimation(keyPath: "opacity")
-//        animation.fromValue = 0
-//        animation.toValue = 0.5
-//        animation.duration = 1
-//        cell.collectionView.layer.add(animation, forKey: nil)
+//                 //print("stop")
 //
-//        let fromValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width/3, height: cell.collectionView.layer.bounds.height/3)
-//        let toValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width, height: cell.collectionView.layer.bounds.height)
+//        //
+//               let animation = CABasicAnimation(keyPath: "opacity")
+//                      animation.fromValue = 1
+//                      animation.toValue = 0
+//                      animation.duration = 1
+//                      cell.collectionView.layer.add(animation, forKey: nil)
+//
+//        let toValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width/3, height: cell.collectionView.layer.bounds.height/3)
+//        let fromValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width, height: cell.collectionView.layer.bounds.height)
 //
 //        let animation2 = CABasicAnimation(keyPath: "bounds")
 //        animation2.fromValue = fromValue
 //        animation2.toValue = toValue
 //        animation2.duration = 0.5
 //        cell.collectionView.layer.add(animation2, forKey: nil)
-
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? NewsCell else {return}
-        
-                 print("stop")
-     
-        //
-               let animation = CABasicAnimation(keyPath: "opacity")
-                      animation.fromValue = 1
-                      animation.toValue = 0
-                      animation.duration = 1
-                      cell.collectionView.layer.add(animation, forKey: nil)
-        
-        let toValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width/3, height: cell.collectionView.layer.bounds.height/3)
-        let fromValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width, height: cell.collectionView.layer.bounds.height)
-
-        let animation2 = CABasicAnimation(keyPath: "bounds")
-        animation2.fromValue = fromValue
-        animation2.toValue = toValue
-        animation2.duration = 0.5
-        cell.collectionView.layer.add(animation2, forKey: nil)
-        
-     
-    }
+//
+//
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
@@ -187,11 +173,11 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     
     func errorFunc() {
-        print(#function)
+        //print(#function)
         showErrorAlert()
     }
     func likeNews(isLiked: Bool) {
-        print("like \(isLiked)")
+        //print("like \(isLiked)")
     }
     
     func showErrorAlert() {

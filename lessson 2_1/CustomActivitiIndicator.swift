@@ -27,7 +27,7 @@ class CustomActivitiIndicator: UIView {
     }
     
     func setup(){
-        
+    
         // Этот метод для себя оставил чтобы не забыть, фукционала в данном случае тут нет
         Bundle.main.loadNibNamed("CustomActivitiIndicator", owner: self, options: nil)
         addSubview(contentView)
@@ -56,6 +56,10 @@ class CustomActivitiIndicator: UIView {
         addSubview(circleView2)
         addSubview(circleView3)
         
+        circleView.translatesAutoresizingMaskIntoConstraints = false
+        circleView2.translatesAutoresizingMaskIntoConstraints = false
+        circleView3.translatesAutoresizingMaskIntoConstraints = false
+        
         circleView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         circleView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         circleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -30).isActive =     true
@@ -77,23 +81,33 @@ class CustomActivitiIndicator: UIView {
     }
     
     func startAnimate(){
+        circleView.backgroundColor = .gray
+        circleView.layer.cornerRadius = 10
         circleView.isHidden = false
         circleView2.isHidden = false
         circleView3.isHidden = false
+        circleView.alpha = 1
+        circleView2.alpha = 1
+        circleView3.alpha = 1
         
-        UIView.animate(withDuration: 0.5, delay: 0,options: [.repeat,.autoreverse], animations: {
-            self.circleView.alpha = 0
+        let duration = 0.7
+        UIView.animate(withDuration: duration, delay: 0,options: [.repeat,.autoreverse], animations: {
+            self.circleView.alpha = 0.5
+            self.circleView.frame.origin.y -= 3
         })
-        UIView.animate(withDuration: 0.5,delay: 1/3, options: [.repeat,.autoreverse], animations: {
+        UIView.animate(withDuration: duration,delay: duration*2/3, options: [.repeat,.autoreverse], animations: {
             self.circleView2.alpha = 0
+            self.circleView2.frame.origin.y -= 3
         })
-        UIView.animate(withDuration: 0.5,delay: 0.6, options: [.repeat,.autoreverse], animations: {
+        UIView.animate(withDuration: duration,delay: duration*4/3, options: [.repeat,.autoreverse], animations: {
             self.circleView3.alpha = 0
+            self.circleView3.frame.origin.y -= 3
         })
+   
     }
     
      func stopAnimate(){
-        
+         
         circleView.layer.removeAllAnimations()
         circleView2.layer.removeAllAnimations()
         circleView3.layer.removeAllAnimations()

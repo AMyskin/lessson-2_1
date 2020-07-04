@@ -31,7 +31,7 @@ class NewsCell: UITableViewCell, LikeDelegate {
     
     
     func likeEnabled(isLiked: Bool) {
-         print("news \(isLiked)")
+         //print("news \(isLiked)")
         delegate?.likeNews(isLiked: isLiked )
         self.delegate?.buttonTappedLike(cell: self )
         likeControl.likesCount = isLiked ? likeControl.likesCount + 1 : likeControl.likesCount - 1
@@ -85,7 +85,7 @@ class NewsCell: UITableViewCell, LikeDelegate {
         countOfViewsLabel.text = String(model.countOfViews)
         avatarView.avatarImage = model.avatar
         likeControl.likesCount = model.countOfLike
-        print(String(model.countOfLike))
+        //print(String(model.countOfLike))
         likeControl.isLiked = model.isLiked
        // newsImageView.image = model.image.first
         

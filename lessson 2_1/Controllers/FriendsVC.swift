@@ -50,7 +50,10 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     @IBOutlet weak var tableView: UITableView!
     
     
-    
+//    static func storyboardInstance() -> FriendsVC? {
+//             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//             return storyboard.instantiateViewController(withIdentifier: "FriendsVC") as? FriendsVC
+//         }
     
     
     

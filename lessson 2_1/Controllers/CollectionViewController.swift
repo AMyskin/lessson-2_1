@@ -10,7 +10,7 @@ import UIKit
 
 //private let reuseIdentifier = "Cell"
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
     
@@ -21,7 +21,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userImage.count)
+        //print(userImage.count)
         
         
     }
@@ -45,36 +45,55 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserCollectionViewCell
         
-        
-        
-        
-        
+
         cell.image.image = userImage[indexPath.row]
         
+        
+      print ("-------asdfasdfasdf------\(collectionView.bounds.minY) ------------\(collectionView.bounds)")
         
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(
-//            width: collectionView.bounds.width ,
-//            height: collectionView.bounds.height
-//        )
-//    }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width =  CGFloat(414)
-        let height = CGFloat(414)
+        let width =  collectionView.bounds.width
+        let height = collectionView.bounds.height + collectionView.bounds.minY*2
         
-        print ("-------asdfasdfasdf------\(UIScreen.main.bounds) ------------\(collectionView.layer.bounds)")
-        return CGSize(width: (width/5.5), height: (height/4.5))
+        //print ("-------asdfasdfasdf------collectionView \(height)")
+        return CGSize(width: (width), height: (height))
 
 
     }
     
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 1
+
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 0.5
+        animation.beginTime = CACurrentMediaTime() + 0.1 * Double(indexPath.row)
+        cell.layer.add(animation, forKey: nil)
+
+        let fromValue = CGRect(x: cell.layer.bounds.origin.x, y: cell.layer.bounds.origin.y,   width: cell.layer.bounds.width/1.3, height: cell.layer.bounds.height/1.3)
+        let toValue = CGRect(x: cell.layer.bounds.origin.x, y: cell.layer.bounds.origin.y,   width: cell.layer.bounds.width, height: cell.layer.bounds.height)
+
+        let animation2 = CABasicAnimation(keyPath: "bounds")
+        animation2.fromValue = fromValue
+        animation2.toValue = toValue
+        animation2.duration = 0.5
+        cell.layer.add(animation2, forKey: nil)
+    }
     
+    
+   
+    
+    
+    
+  
+    
+ 
 
     
     

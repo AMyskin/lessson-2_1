@@ -40,6 +40,7 @@
 		0AE3BB8C24B07B5100742558 /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8B24B07B5100742558 /* Lorem.swift */; };
 		0AE3BB8F24B08DBB00742558 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8D24B08DBB00742558 /* PhotoCollectionViewCell.swift */; };
 		0AE3BB9024B08DBB00742558 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8E24B08DBB00742558 /* PhotoCollectionViewCell.xib */; };
+		0AE68AA724B0E315007647B0 /* CustomActivitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		0AE3BB8B24B07B5100742558 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
 		0AE3BB8D24B08DBB00742558 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = ../../../../../../../../Documents/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AE3BB8E24B08DBB00742558 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = ../../../../../../../../Documents/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivitiVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				0A2339EF24A651C600290688 /* Cells */,
 				0A668DE324929BF800F860CB /* LoginViewController.swift */,
+				0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */,
 				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
 				0A74968624ACF6D6008EE3E3 /* NewsVC.swift */,
 				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
@@ -252,6 +255,7 @@
 				0A2339EB24A3B43E00290688 /* FriendsVC.swift in Sources */,
 				0A74968724ACF6D6008EE3E3 /* NewsVC.swift in Sources */,
 				0A74968524ACE9F3008EE3E3 /* newsOfUser.swift in Sources */,
+				0AE68AA724B0E315007647B0 /* CustomActivitiVC.swift in Sources */,
 				0AE3BB8624AF934800742558 /* CustomActivitiIndicator.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
 				0AE3BB8F24B08DBB00742558 /* PhotoCollectionViewCell.swift in Sources */,
