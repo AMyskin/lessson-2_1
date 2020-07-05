@@ -8,9 +8,13 @@
 
 import UIKit
 
-class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate, FreindsCellDelegate {
+class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate, FreindsCellDelegate, CustomSearchViewDelegate {
 
     
+
+    
+  
+    @IBOutlet weak var customSearchBar: CustomSearchView!
     
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -65,7 +69,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         super.viewDidLoad()
         
      
-        
+        customSearchBar.delegate = self
         charPicker.delegate = self
         charPicker.chars = chars
         
@@ -76,14 +80,17 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
+        
         searchController.searchBar.placeholder = "Поиск"
         // 4
         navigationItem.searchController = searchController
         // 5
         definesPresentationContext = true
         
+        
         setupTableView()
     }
+    
     
     
    
@@ -243,6 +250,20 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
            
     }
     
+    func CustomSearch(chars: String) {
+        
+        if chars.count > 0 {
+            filterContentForSearchText(chars)
+                  searchController.isActive = true
+                  searchController.searchBar.text = (chars)
+    
+        } else {
+            searchController.isActive = false
+            searchController.searchBar.text = nil
+        }
+      
+    }
+    
     
     
     
@@ -364,3 +385,7 @@ extension UIView{
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+
+
+
