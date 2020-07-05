@@ -30,7 +30,6 @@
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <action selector="editDidBegin:" destination="-1" eventType="editingDidBegin" id="yH7-71-NK6"/>
-                                <action selector="searchText:" destination="-1" eventType="touchDown" id="WPH-wT-wSX"/>
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keR-Cx-b3n">

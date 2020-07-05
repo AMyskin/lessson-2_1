@@ -34,14 +34,14 @@
 		0A74968B24ACF8B6008EE3E3 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74968924ACF8B6008EE3E3 /* NewsCell.xib */; };
 		0A97371624B12E6600DA9BF0 /* CustomSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97371524B12E6600DA9BF0 /* CustomSearchView.swift */; };
 		0A97371824B12E7C00DA9BF0 /* CustomSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A97371724B12E7C00DA9BF0 /* CustomSearchView.xib */; };
+		0A97371C24B1E38B00DA9BF0 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A97371A24B1E38B00DA9BF0 /* PhotoCollectionViewCell.xib */; };
+		0A97371D24B1E38B00DA9BF0 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97371B24B1E38B00DA9BF0 /* PhotoCollectionViewCell.swift */; };
 		0AE3BB5C24AE6AE000742558 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB5B24AE6AE000742558 /* Animations.swift */; };
 		0AE3BB5E24AE6AEC00742558 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB5D24AE6AEC00742558 /* Animator.swift */; };
 		0AE3BB6024AE6B4600742558 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB5F24AE6B4600742558 /* UITableView+Ext.swift */; };
 		0AE3BB8624AF934800742558 /* CustomActivitiIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8524AF934800742558 /* CustomActivitiIndicator.swift */; };
 		0AE3BB8824AF935B00742558 /* CustomActivitiIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8724AF935B00742558 /* CustomActivitiIndicator.xib */; };
 		0AE3BB8C24B07B5100742558 /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8B24B07B5100742558 /* Lorem.swift */; };
-		0AE3BB8F24B08DBB00742558 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8D24B08DBB00742558 /* PhotoCollectionViewCell.swift */; };
-		0AE3BB9024B08DBB00742558 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3BB8E24B08DBB00742558 /* PhotoCollectionViewCell.xib */; };
 		0AE68AA724B0E315007647B0 /* CustomActivitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,14 +75,14 @@
 		0A74968924ACF8B6008EE3E3 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		0A97371524B12E6600DA9BF0 /* CustomSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchView.swift; sourceTree = "<group>"; };
 		0A97371724B12E7C00DA9BF0 /* CustomSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSearchView.xib; sourceTree = "<group>"; };
+		0A97371A24B1E38B00DA9BF0 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0A97371B24B1E38B00DA9BF0 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AE3BB5B24AE6AE000742558 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		0AE3BB5D24AE6AEC00742558 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		0AE3BB5F24AE6B4600742558 /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		0AE3BB8524AF934800742558 /* CustomActivitiIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivitiIndicator.swift; sourceTree = "<group>"; };
 		0AE3BB8724AF935B00742558 /* CustomActivitiIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomActivitiIndicator.xib; sourceTree = "<group>"; };
 		0AE3BB8B24B07B5100742558 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
-		0AE3BB8D24B08DBB00742558 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = ../../../../../../../../Documents/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		0AE3BB8E24B08DBB00742558 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = ../../../../../../../../Documents/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivitiVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,8 +133,8 @@
 				0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */,
 				0A74968824ACF8B6008EE3E3 /* NewsCell.swift */,
 				0A74968924ACF8B6008EE3E3 /* NewsCell.xib */,
-				0AE3BB8D24B08DBB00742558 /* PhotoCollectionViewCell.swift */,
-				0AE3BB8E24B08DBB00742558 /* PhotoCollectionViewCell.xib */,
+				0A97371B24B1E38B00DA9BF0 /* PhotoCollectionViewCell.swift */,
+				0A97371A24B1E38B00DA9BF0 /* PhotoCollectionViewCell.xib */,
 				0A2339D8249E57B200290688 /* UserCollectionViewCell.swift */,
 				0A2339E0249E901600290688 /* GroupCell.swift */,
 			);
@@ -248,12 +248,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A74968B24ACF8B6008EE3E3 /* NewsCell.xib in Resources */,
+				0A97371C24B1E38B00DA9BF0 /* PhotoCollectionViewCell.xib in Resources */,
 				0A668DEC24929BF900F860CB /* LaunchScreen.storyboard in Resources */,
 				0AE3BB8824AF935B00742558 /* CustomActivitiIndicator.xib in Resources */,
 				0A668DE924929BF900F860CB /* Assets.xcassets in Resources */,
 				0A97371824B12E7C00DA9BF0 /* CustomSearchView.xib in Resources */,
 				0A74968324ACD97F008EE3E3 /* FriendsHeaderCell.xib in Resources */,
-				0AE3BB9024B08DBB00742558 /* PhotoCollectionViewCell.xib in Resources */,
 				0A668DE724929BF800F860CB /* Main.storyboard in Resources */,
 				0A2339F924ACC9B900290688 /* FreindsCell.xib in Resources */,
 			);
@@ -274,7 +274,6 @@
 				0AE68AA724B0E315007647B0 /* CustomActivitiVC.swift in Sources */,
 				0AE3BB8624AF934800742558 /* CustomActivitiIndicator.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
-				0AE3BB8F24B08DBB00742558 /* PhotoCollectionViewCell.swift in Sources */,
 				0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */,
 				0A2339E1249E901600290688 /* GroupCell.swift in Sources */,
 				0A2339E524A3555A00290688 /* AvatarView.swift in Sources */,
@@ -291,6 +290,7 @@
 				0A2339DF249E8EAF00290688 /* AllGroupTableViewController.swift in Sources */,
 				0A74968124ACD939008EE3E3 /* FriendsHeaderCell.swift in Sources */,
 				0A2339ED24A3B66300290688 /* CharPicker.swift in Sources */,
+				0A97371D24B1E38B00DA9BF0 /* PhotoCollectionViewCell.swift in Sources */,
 				0AE3BB5E24AE6AEC00742558 /* Animator.swift in Sources */,
 				0AE3BB5C24AE6AE000742558 /* Animations.swift in Sources */,
 			);

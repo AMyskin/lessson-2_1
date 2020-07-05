@@ -25,18 +25,12 @@ class CustomSearchView: UIView, UITextFieldDelegate {
     
     @IBAction func cancelButtonPushed(_ sender: UIButton) {
         print(self.searchButtonLabel.frame.origin.x)
-        cancelButtonHide()
-        moveBackSearchButtonLabel()
-        moveBackSearchText()
-        
-        
+        searchFieldText.endEditing(true)
+   
+   
     }
     
-    
-    
-    @IBAction func searchText(_ sender: Any) {
-        print(#function)
-    }
+ 
     
     
     
@@ -147,6 +141,13 @@ class CustomSearchView: UIView, UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField){
         guard let text = textField.text else {return}
         delegate?.CustomSearch(chars: text)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        cancelButtonHide()
+        moveBackSearchButtonLabel()
+        moveBackSearchText()
+        return true
     }
     
     

@@ -85,7 +85,7 @@ public struct User {
     
             
             return NewsOfUser(
-                author: Lorem.fullName,
+                author: userName,
                 avatar: userImsages.first,
                 image: (1...Int.random(in: 5...10))
                     .map { $0 % 6 }
