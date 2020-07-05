@@ -21,6 +21,7 @@
 		0A2339F124A72BD300290688 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339F024A72BD300290688 /* LikeView.swift */; };
 		0A2339F824ACC9B900290688 /* FreindsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2339F624ACC9B900290688 /* FreindsCell.swift */; };
 		0A2339F924ACC9B900290688 /* FreindsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2339F724ACC9B900290688 /* FreindsCell.xib */; };
+		0A62E0C824B206CE005D8CE1 /* SwipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62E0C724B206CE005D8CE1 /* SwipeVC.swift */; };
 		0A668DE024929BF800F860CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DDF24929BF800F860CB /* AppDelegate.swift */; };
 		0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A668DE324929BF800F860CB /* LoginViewController.swift */; };
 		0A668DE724929BF800F860CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A668DE524929BF800F860CB /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		0A2339F024A72BD300290688 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		0A2339F624ACC9B900290688 /* FreindsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsCell.swift; sourceTree = "<group>"; };
 		0A2339F724ACC9B900290688 /* FreindsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreindsCell.xib; sourceTree = "<group>"; };
+		0A62E0C724B206CE005D8CE1 /* SwipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeVC.swift; sourceTree = "<group>"; };
 		0A668DDC24929BF800F860CB /* lessson 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lessson 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A668DDF24929BF800F860CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A668DE324929BF800F860CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
 				0A74968624ACF6D6008EE3E3 /* NewsVC.swift */,
 				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
+				0A62E0C724B206CE005D8CE1 /* SwipeVC.swift */,
 				0A2339DC249E8E9B00290688 /* MyGroupTableViewController.swift */,
 				0A2339DE249E8EAF00290688 /* AllGroupTableViewController.swift */,
 			);
@@ -125,8 +128,8 @@
 		0A2339EF24A651C600290688 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0A2339D4249E39BA00290688 /* UserCell.swift */,
 				0A97371924B1319000DA9BF0 /* CustomCell */,
+				0A2339D4249E39BA00290688 /* UserCell.swift */,
 				0A2339F624ACC9B900290688 /* FreindsCell.swift */,
 				0A2339F724ACC9B900290688 /* FreindsCell.xib */,
 				0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */,
@@ -275,6 +278,7 @@
 				0AE3BB8624AF934800742558 /* CustomActivitiIndicator.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
 				0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */,
+				0A62E0C824B206CE005D8CE1 /* SwipeVC.swift in Sources */,
 				0A2339E1249E901600290688 /* GroupCell.swift in Sources */,
 				0A2339E524A3555A00290688 /* AvatarView.swift in Sources */,
 				0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */,

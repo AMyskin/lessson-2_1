@@ -253,20 +253,21 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let collectionPhotoVC = CollectionViewController.storyboardInstance()
+//       let collectionPhotoVC = CollectionViewController.storyboardInstance()
+//
+//        collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
+//        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
+        
+        let collectionPhotoVC = SwipeVC.storyboardInstance()
         
         collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
+        collectionPhotoVC?.indexOfImage = indexPath.row
         navigationController?.pushViewController(collectionPhotoVC!, animated: true)
+        
     }
  
     
     
-    @IBAction func passData() {
-          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          guard let secondViewController = storyboard.instantiateViewController(identifier: "CollectionViewController") as? CollectionViewController else { return }
-       
-          
-          show(secondViewController, sender: nil)
-      }
+ 
     
 }

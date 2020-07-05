@@ -81,6 +81,7 @@ class CustomActivitiIndicator: UIView {
     }
     
     func startAnimate(){
+        
         circleView.backgroundColor = .gray
         circleView.layer.cornerRadius = 10
         circleView.isHidden = false

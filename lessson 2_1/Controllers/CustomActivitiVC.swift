@@ -28,6 +28,8 @@ class CustomActivitiVC: UIViewController {
     
     func tapObserver(){
         
+        
+  
  
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(singgleTapAction))
@@ -36,8 +38,19 @@ class CustomActivitiVC: UIViewController {
     }
     
     @objc func singgleTapAction(){
-        print(#function)
-        passData()
+       
+       // customAvtivityView.stopAnimate()
+        
+        print("before")
+        //sleep(10)
+        print("after")
+//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+//            self.passData()
+//        }
+  
+            self.passData()
+      
+       
     }
     
     
