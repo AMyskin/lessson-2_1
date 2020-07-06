@@ -10,6 +10,7 @@ import UIKit
 
 class SwipeVC: UIViewController {
     
+    @IBOutlet weak var viewBeforeImage: UIView!
     @IBOutlet weak var image: UIImageView!
     
     var userImage : [UIImage] = []
@@ -78,18 +79,22 @@ class SwipeVC: UIViewController {
             let translation = recognizer.translation(in: self.view)
             if translation.x > 0 {
                 myPanWay = .LeftToRight
-                myDirection =  self.image.frame.size.width
+                myDirection =  self.view.frame.size.width
             } else {
                 myPanWay = .RightToLeft
-                myDirection = (0 - self.image.frame.size.width)
+                myDirection = (0 - self.view.frame.size.width)
             }
-            
+             print(self.image.frame.size.width)
             
             interactiveAnimator = UIViewPropertyAnimator(duration: 0.5,
                                                          curve: .easeInOut, animations: {
                                                             self.image.frame =
-                                                                self.image.frame.offsetBy(dx: myDirection, dy: 0)
+                                                            self.image.frame.offsetBy(dx: myDirection, dy: 0)
                                                             self.image.alpha = 0
+                                                            self.viewBeforeImage.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                                                         
+                                                      
+                                                            
             })
             interactiveAnimator.pauseAnimation()
         case .changed:
@@ -108,7 +113,7 @@ class SwipeVC: UIViewController {
             if interactiveAnimator.fractionComplete > 0.55 {
                 //interactiveAnimator.stopAnimation(true)
                 interactiveAnimator.fractionComplete = 1
-                interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                //interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                 if myPanWay == .RightToLeft {
                     if  indexOfImage < userImage.count - 1 {
                         indexOfImage += 1
@@ -146,7 +151,7 @@ class SwipeVC: UIViewController {
            // print(interactiveAnimator.fractionComplete)
             if interactiveAnimator.fractionComplete < 1 {
                 
-          returnAnimation()
+                returnAnimation()
                 
             }
             
@@ -166,6 +171,7 @@ class SwipeVC: UIViewController {
                   interactiveAnimator.addAnimations {
                       self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
                       self.image.alpha = 1
+                    self.viewBeforeImage.transform = .identity
                   }
                   
                   interactiveAnimator.startAnimation()

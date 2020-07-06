@@ -303,6 +303,7 @@
                     <connections>
                         <outlet property="image" destination="xtJ-F1-pP4" id="Y69-sD-Wo2"/>
                         <outlet property="indexOfPhotoLabel" destination="kyh-pA-HRe" id="ZwQ-CO-3XA"/>
+                        <outlet property="viewBeforeImage" destination="fLF-ah-Xch" id="Cja-Vq-be6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMs-uf-7f2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
