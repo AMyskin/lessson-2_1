@@ -29,7 +29,8 @@ class SwipeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //print(#function)
         print("indexOfImage=\(indexOfImage)")
-        changeImage()
+         image.image = userImage[indexOfImage]
+         indexOfPhotoLabel.text = "\(indexOfImage+1)"
     }
     
     // MARK: UICollectionViewDataSource
@@ -50,10 +51,25 @@ class SwipeVC: UIViewController {
     }
     
     
-    var myPanWay: MyPanWay = .LeftToRight
+    var myPanWay: MyPanWay = .RightToLeft
     var prev: CGPoint = CGPoint(x: 0, y: 0)
     @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
         
+        //UISwipeGestureRecognizer
+//
+//          case possible = 0
+//
+//
+//          case began = 1
+//
+//          case changed = 2
+//
+//          case ended = 3
+//
+//          case cancelled = 4
+//
+//
+//          case failed = 5
         
         switch recognizer.state {
         case .began:
@@ -85,13 +101,14 @@ class SwipeVC: UIViewController {
                     let positive = -translation.x
                     interactiveAnimator.fractionComplete = positive / self.image.frame.size.width
                 }
-                print("changed = \(interactiveAnimator.fractionComplete)")
+               // print("changed = \(interactiveAnimator.fractionComplete)   translation.x = \(translation.x)  image = \(self.image.frame.size.width)  ")
                 
             
             
-            if interactiveAnimator.fractionComplete > 0.60 {
+            if interactiveAnimator.fractionComplete > 0.55 {
                 //interactiveAnimator.stopAnimation(true)
                 interactiveAnimator.fractionComplete = 1
+                interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                 if myPanWay == .RightToLeft {
                     if  indexOfImage < userImage.count - 1 {
                         indexOfImage += 1
@@ -100,12 +117,11 @@ class SwipeVC: UIViewController {
                     }
                    // print("left index = \(indexOfImage)")
                     
-                    interactiveAnimator.addAnimations {
-                        self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
-                    }
-                    self.image.alpha = 1
-                    interactiveAnimator.startAnimation()
+              returnAnimation()
                     changeImage()
+                   // print("change")
+                    recognizer.state = .ended
+                  
                 }
                 
                 if myPanWay == .LeftToRight {
@@ -117,12 +133,11 @@ class SwipeVC: UIViewController {
                     // print("right index = \(indexOfImage)")
                     
                     
-                    interactiveAnimator.addAnimations {
-                        self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
-                    }
-                    self.image.alpha = 1
-                    interactiveAnimator.startAnimation()
+            returnAnimation()
                     changeImage()
+                     //      print("change")
+                    recognizer.state = .ended
+                    
                 }
             }
             
@@ -131,48 +146,62 @@ class SwipeVC: UIViewController {
            // print(interactiveAnimator.fractionComplete)
             if interactiveAnimator.fractionComplete < 1 {
                 
-                interactiveAnimator.stopAnimation(true)
-                
-                interactiveAnimator.addAnimations {
-                    self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
-                    self.image.alpha = 1
-                }
-                
-                interactiveAnimator.startAnimation()
+          returnAnimation()
                 
             }
             
             interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
             
             
+  
+            
             
         default: return
         }
     }
     
+    private func returnAnimation() {
+        interactiveAnimator.stopAnimation(true)
+                  
+                  interactiveAnimator.addAnimations {
+                      self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
+                      self.image.alpha = 1
+                  }
+                  
+                  interactiveAnimator.startAnimation()
+    }
+    
     
     
     private func changeImage(){
-        imageAnimate()
+        
         image.image = userImage[indexOfImage]
         indexOfPhotoLabel.text = "\(indexOfImage+1)"
+        imageAnimate()
     }
     
     
     
     private func imageAnimate(){
         
+        print(myPanWay)
         
+        let fromMove = myPanWay == .LeftToRight ? -image.layer.bounds.width : image.layer.bounds.width * 2
+        let toMove = image.layer.bounds.width / 2
         
         let toValue = image.layer.bounds
-        let fromValue = CGRect(x: image.layer.bounds.origin.x, y: image.layer.bounds.origin.y,   width: image.layer.bounds.width/2, height: image.layer.bounds.height/2)
+        let fromValue = CGRect(x: image.layer.bounds.origin.x, y: image.layer.bounds.origin.y,   width: image.layer.bounds.width/1.5, height: image.layer.bounds.height/1.5)
         
-        //print("from = \(fromValue)")
-        //print("toValue = \(toValue)")
+        print("from = \(fromValue)")
+        print("toValue = \(toValue)")
         let animationsGroup = CAAnimationGroup()
         animationsGroup.duration = 0.5
         
         animationsGroup.fillMode = CAMediaTimingFillMode.backwards
+        
+        let move = CABasicAnimation(keyPath: "position.x")
+        move.fromValue = fromMove
+        move.toValue = toMove
         
         let translation = CABasicAnimation(keyPath: "bounds")
         translation.fromValue = fromValue
@@ -182,7 +211,7 @@ class SwipeVC: UIViewController {
         alpha.fromValue = 0
         alpha.toValue = 0.9
         
-        animationsGroup.animations = [translation, alpha]
+        animationsGroup.animations = [move, translation, alpha]
         
         
         image.layer.add(animationsGroup, forKey: nil)

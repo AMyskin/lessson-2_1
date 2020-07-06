@@ -93,7 +93,7 @@ class CustomActivitiIndicator: UIView {
         
         let duration = 0.7
         UIView.animate(withDuration: duration, delay: 0,options: [.repeat,.autoreverse], animations: {
-            self.circleView.alpha = 0.5
+            self.circleView.alpha = 0
             self.circleView.frame.origin.y -= 3
         })
         UIView.animate(withDuration: duration,delay: duration*2/3, options: [.repeat,.autoreverse], animations: {
@@ -119,6 +119,8 @@ class CustomActivitiIndicator: UIView {
         circleView2.isHidden = true
         circleView3.isHidden = true
     }
+    
+
     
     
 }

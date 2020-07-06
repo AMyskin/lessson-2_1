@@ -28,6 +28,13 @@
                                     <constraint firstAttribute="height" constant="40" id="9e2-T0-eyr"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vA-8o-bga" customClass="CustomActivitiIndicator2" customModule="lessson_2" customModuleProvider="target">
+                                <rect key="frame" x="107" y="114" width="200" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="2Jj-21-Baf"/>
+                                    <constraint firstAttribute="width" constant="200" id="c9i-lX-DHN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -37,11 +44,14 @@
                             <constraint firstItem="TJU-QO-FUb" firstAttribute="bottom" secondItem="JL7-fq-DHQ" secondAttribute="bottom" constant="150" id="Ltj-6c-YxD"/>
                             <constraint firstItem="TJU-QO-FUb" firstAttribute="trailing" secondItem="JL7-fq-DHQ" secondAttribute="trailing" constant="20" id="eQE-zI-SFx"/>
                             <constraint firstItem="OHt-zz-6vC" firstAttribute="centerY" secondItem="qfH-lq-f30" secondAttribute="centerY" id="erc-Nx-Siw"/>
+                            <constraint firstItem="1vA-8o-bga" firstAttribute="top" secondItem="TJU-QO-FUb" secondAttribute="top" constant="70" id="fUa-IJ-OdU"/>
+                            <constraint firstItem="1vA-8o-bga" firstAttribute="centerX" secondItem="qfH-lq-f30" secondAttribute="centerX" id="qXm-hh-zCH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TJU-QO-FUb"/>
                     </view>
                     <navigationItem key="navigationItem" id="dZW-lp-tbg"/>
                     <connections>
+                        <outlet property="coustomActiviti2" destination="1vA-8o-bga" id="tvg-95-UAL"/>
                         <outlet property="customAvtivityView" destination="JL7-fq-DHQ" id="wpF-p7-PeO"/>
                     </connections>
                 </viewController>
@@ -256,7 +266,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xtJ-F1-pP4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-pA-HRe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyh-pA-HRe">
                                         <rect key="frame" x="20" y="20" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4Cl-zp-qgD"/>
@@ -265,8 +275,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="shadowOffset" width="1" height="2"/>
+                                        <color key="shadowColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

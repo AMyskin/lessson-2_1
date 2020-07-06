@@ -42,8 +42,6 @@
                             <color key="backgroundColor" red="1" green="0.33861737590000002" blue="0.15786101860000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="EWs-PB-PWr"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Hwr-hc-lhB"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="jPs-tH-tIU"/>
                                 <constraint firstAttribute="height" constant="30" id="lYy-Wy-RMl"/>
                             </constraints>
                             <state key="normal" title="Отмена">

@@ -11,6 +11,7 @@ import UIKit
 class CustomActivitiVC: UIViewController {
     
     
+    @IBOutlet weak var coustomActiviti2: CustomActivitiIndicator2!
     @IBOutlet weak var customAvtivityView: CustomActivitiIndicator!
 
     override func viewDidLoad() {
@@ -21,9 +22,12 @@ class CustomActivitiVC: UIViewController {
 
      
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
          
            customAvtivityView.startAnimate()
+        coustomActiviti2.startAnimation()
+                 
+        
     }
     
     func tapObserver(){
@@ -39,16 +43,14 @@ class CustomActivitiVC: UIViewController {
     
     @objc func singgleTapAction(){
        
-       // customAvtivityView.stopAnimate()
-        
-        print("before")
-        //sleep(10)
-        print("after")
-//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-//            self.passData()
-//        }
-  
+        customAvtivityView.stopAnimate()
+        coustomActiviti2.stopAnimation()
+
+        //Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
             self.passData()
+       // }
+  
+
       
        
     }
