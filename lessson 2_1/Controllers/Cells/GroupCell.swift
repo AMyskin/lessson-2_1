@@ -14,7 +14,7 @@ protocol GroupCellDelegate: class {
     
 }
 
-class GroupCell: UITableViewCell, AvatarViewDelegate {
+class GroupCell: UITableViewCell {
  
     
     
@@ -34,7 +34,7 @@ class GroupCell: UITableViewCell, AvatarViewDelegate {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        avatarView.delegate = self
+        //avatarView.delegate = self
         // Configure the view for the selected state
     }
     

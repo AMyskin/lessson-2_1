@@ -9,17 +9,17 @@
 import UIKit
 
 
-protocol FreindsCellDelegate: class {
+//protocol FreindsCellDelegate: class {
+//
+//    func buttonTapped(cell: FreindsCell, button : UIButton)
+//
+//}
 
-    func buttonTapped(cell: FreindsCell, button : UIButton)
-    
-}
-
-class FreindsCell: UITableViewCell, AvatarViewDelegate {
+class FreindsCell: UITableViewCell {
 
     
     
-    weak var delegate: FreindsCellDelegate?
+    //weak var delegate: FreindsCellDelegate?
     
 
     
@@ -35,10 +35,10 @@ class FreindsCell: UITableViewCell, AvatarViewDelegate {
     
 
     
-    func buttonTapped(button: UIButton) {
-        //print("FreindsCell")
-        delegate?.buttonTapped(cell: self, button: button)
-    }
+//    func buttonTapped(button: UIButton) {
+//        //print("FreindsCell")
+//        delegate?.buttonTapped(cell: self, button: button)
+//    }
     
 
     func configure(name: String, emblem: UIImage) {
@@ -65,7 +65,7 @@ class FreindsCell: UITableViewCell, AvatarViewDelegate {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        avatarView.delegate = self
+       // avatarView.delegate = self
         // Configure the view for the selected state
     }
     

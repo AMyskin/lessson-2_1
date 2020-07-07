@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate, FreindsCellDelegate, CustomSearchViewDelegate {
+class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CharDelegate, CustomSearchViewDelegate {
 
     
 
@@ -190,7 +190,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         let animator = Animator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
         
-        cell.delegate = self
+        //cell.delegate = self
         
 
         
@@ -234,21 +234,21 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     
-    func buttonTapped(cell: FreindsCell, button: UIButton) {
-        //guard let indexPath = self.tableView.indexPath(for: cell) else {return}
-              //print("buttonTapped")
-             
-                       let pulse = CASpringAnimation(keyPath: "transform.scale")
-                       pulse.duration = 0.6
-                       pulse.fromValue = 0.8
-                       pulse.toValue = 1
-                       pulse.initialVelocity = 0.5
-                       pulse.damping = 1
-                       
-                       button.layer.add(pulse, forKey: nil)
-              
-           
-    }
+//    func buttonTapped(cell: FreindsCell, button: UIButton) {
+//        //guard let indexPath = self.tableView.indexPath(for: cell) else {return}
+//              //print("buttonTapped")
+//             
+//                       let pulse = CASpringAnimation(keyPath: "transform.scale")
+//                       pulse.duration = 0.6
+//                       pulse.fromValue = 0.8
+//                       pulse.toValue = 1
+//                       pulse.initialVelocity = 0.5
+//                       pulse.damping = 1
+//                       
+//                       button.layer.add(pulse, forKey: nil)
+//              
+//           
+//    }
     
     func CustomSearch(chars: String) {
         

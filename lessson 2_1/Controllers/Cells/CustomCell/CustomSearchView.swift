@@ -14,85 +14,38 @@ protocol CustomSearchViewDelegate: class {
 
 class CustomSearchView: UIView, UITextFieldDelegate {
     
+    
+    
+    @IBOutlet weak var leftTextConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var centerXImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var leftCancelButtonConstaint: NSLayoutConstraint!
+    
+    
+    
+    
+    
+    
     weak var delegate: CustomSearchViewDelegate?
     
     @IBOutlet weak var myView: UIView!
     
-    @IBOutlet weak var searchButtonLabel: UIButton!
+    @IBOutlet weak var searchImage: UIImageView!
+   
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var searchFieldText: UITextField!
     
     @IBAction func cancelButtonPushed(_ sender: UIButton) {
-        print(self.searchButtonLabel.frame.origin.x)
+        
         searchFieldText.endEditing(true)
    
    
     }
     
  
-    
-    
-    
-    @IBAction func editDidBegin(_ sender: UITextField) {
-        
-        //print(self.searchButtonLabel.frame.origin.x)
-        cancelButtonShow()
-        moveSearchButtonLabel()
-        moveSearchText()
-        
-        
-    }
-    
-    private func moveSearchButtonLabel(){
-        
-        
-        if self.searchButtonLabel.frame.origin.x > 0 {
-            
-            UIView.animate(withDuration: 0.5, delay: 0, animations: {
-                self.searchButtonLabel.frame.origin.x -= (CGFloat(Int(self.bounds.width/2 - 20)))
-            })
-        }
-    }
-    private func moveSearchText(){
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.searchFieldText.frame.origin.x = 40
-        })
-    }
-    private func moveBackSearchText(){
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.searchFieldText.frame.origin.x -= 40
-        })
-    }
-    private func moveBackSearchButtonLabel(){
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.searchButtonLabel.frame.origin.x = (CGFloat(Int(self.bounds.width/2 - 20)))
-        })
-    }
-    
-    
-    private func cancelButtonShow(){
-        cancelButton.isHidden = false
-        
-        cancelButton.transform = CGAffineTransform(translationX: cancelButton.bounds.width, y: 0)
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            
-            self.cancelButton.transform = CGAffineTransform(translationX: 0, y: 0)
-            
-        })
-    }
-    private func cancelButtonHide(){
-        searchFieldText.text = ""
-        searchFieldText.endEditing(true)
-        
-        cancelButton.transform = CGAffineTransform(translationX: 0, y: 0)
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.cancelButton.transform = CGAffineTransform(translationX: self.cancelButton.bounds.width + 15, y: 0)
-            
-        })
-    }
+
     
     
     override init(frame: CGRect) {
@@ -106,6 +59,8 @@ class CustomSearchView: UIView, UITextFieldDelegate {
     }
     
     func setup(){
+        
+ 
         
         
         
@@ -143,10 +98,36 @@ class CustomSearchView: UIView, UITextFieldDelegate {
         delegate?.CustomSearch(chars: text)
     }
     
+     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+            searchFieldText.translatesAutoresizingMaskIntoConstraints = false
+            searchImage.translatesAutoresizingMaskIntoConstraints = false
+           
+           
+                   centerXImageConstraint.constant = -(bounds.width / 2 - 20)
+                   leftTextConstraint.constant = searchImage.bounds.width + 15
+                   leftCancelButtonConstaint.constant = -70
+                   
+                   UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: [], animations: {
+                       self.layoutIfNeeded()
+                   }, completion: nil)
+        
+        return true
+        
+    }
+    
+    
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        cancelButtonHide()
-        moveBackSearchButtonLabel()
-        moveBackSearchText()
+        
+        centerXImageConstraint.constant = 0
+        leftTextConstraint.constant =  15
+        leftCancelButtonConstaint.constant = 90
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: [], animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
         return true
     }
     

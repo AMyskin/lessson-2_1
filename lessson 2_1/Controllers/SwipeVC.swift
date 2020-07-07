@@ -91,7 +91,7 @@ class SwipeVC: UIViewController {
                                                             self.image.frame =
                                                             self.image.frame.offsetBy(dx: myDirection, dy: 0)
                                                             self.image.alpha = 0
-                                                            self.viewBeforeImage.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                                                            self.viewBeforeImage.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
                                                          
                                                       
                                                             
