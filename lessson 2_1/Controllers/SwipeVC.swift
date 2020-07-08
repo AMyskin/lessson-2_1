@@ -10,12 +10,15 @@ import UIKit
 
 class SwipeVC: UIViewController {
     
+
     @IBOutlet weak var viewBeforeImage: UIView!
     @IBOutlet weak var image: UIImageView!
     
     var userImage : [UIImage] = []
     var indexOfImage : Int = 0
     @IBOutlet weak var indexOfPhotoLabel: UILabel!
+    
+    
     
     
     

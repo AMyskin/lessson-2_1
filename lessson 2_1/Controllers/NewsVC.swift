@@ -12,7 +12,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     
     
-    
+        var transition = PopAnimator()
     
     
     
@@ -252,20 +252,40 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         )
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //       let collectionPhotoVC = CollectionViewController.storyboardInstance()
 //
 //        collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
 //        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
         
-        let collectionPhotoVC = SwipeVC.storyboardInstance()
         
-        collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
-        collectionPhotoVC?.indexOfImage = indexPath.row
-        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
         
+        guard  let collectionPhotoVC = SwipeVC.storyboardInstance(),
+                let selectedcell = collectionView.cellForItem(at: indexPath)
+        else {return}
+        collectionPhotoVC.transitioningDelegate = self
+        
+        
+        
+        collectionPhotoVC.userImage = user.newsTest[collectionView.tag].image
+        
+        transition = PopAnimator(startImage: selectedcell)
+        
+        collectionPhotoVC.indexOfImage = indexPath.row
+//        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let secondViewController = storyboard.instantiateViewController(identifier: "SwipeVC")
+      collectionPhotoVC.modalPresentationStyle = .fullScreen
+        
+        self.present(collectionPhotoVC, animated: true, completion: nil)
     }
     
+    
+    
+
     
 
  
@@ -273,4 +293,23 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
  
     
+}
+
+
+
+extension NewsVC: UIViewControllerTransitioningDelegate {
+    
+    func animationController(
+      forPresented presented: UIViewController,
+      presenting: UIViewController, source: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+      return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+      return nil
+    }
+
+
 }

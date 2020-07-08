@@ -32,6 +32,8 @@
 		0A6C8ED624B5E8640098E340 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C8ED524B5E8640098E340 /* CustomPushAnimator.swift */; };
 		0A6C8ED824B5E9260098E340 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C8ED724B5E9260098E340 /* CustomPopAnimator.swift */; };
 		0A6C8EDA24B5E95D0098E340 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C8ED924B5E95D0098E340 /* CustomNavigationController.swift */; };
+		0A6C8EDC24B647400098E340 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C8EDB24B647400098E340 /* CustomInteractiveTransition.swift */; };
+		0A6C8EDF24B6515B0098E340 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C8EDE24B6515B0098E340 /* PopAnimator.swift */; };
 		0A74968124ACD939008EE3E3 /* FriendsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */; };
 		0A74968324ACD97F008EE3E3 /* FriendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */; };
 		0A74968524ACE9F3008EE3E3 /* newsOfUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74968424ACE9F3008EE3E3 /* newsOfUser.swift */; };
@@ -79,6 +81,8 @@
 		0A6C8ED524B5E8640098E340 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		0A6C8ED724B5E9260098E340 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		0A6C8ED924B5E95D0098E340 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		0A6C8EDB24B647400098E340 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
+		0A6C8EDE24B6515B0098E340 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		0A74968024ACD939008EE3E3 /* FriendsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsHeaderCell.swift; sourceTree = "<group>"; };
 		0A74968224ACD97F008EE3E3 /* FriendsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsHeaderCell.xib; sourceTree = "<group>"; };
 		0A74968424ACE9F3008EE3E3 /* newsOfUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsOfUser.swift; sourceTree = "<group>"; };
@@ -124,12 +128,14 @@
 			children = (
 				0A2339EF24A651C600290688 /* Cells */,
 				0A668DE324929BF800F860CB /* LoginViewController.swift */,
+				0A6C8EDD24B651340098E340 /* AnimateImage */,
 				0AE68AA624B0E315007647B0 /* CustomActivitiVC.swift */,
 				0A2339EA24A3B43E00290688 /* FriendsVC.swift */,
 				0A74968624ACF6D6008EE3E3 /* NewsVC.swift */,
 				0A6C8ED524B5E8640098E340 /* CustomPushAnimator.swift */,
 				0A6C8ED724B5E9260098E340 /* CustomPopAnimator.swift */,
 				0A6C8ED924B5E95D0098E340 /* CustomNavigationController.swift */,
+				0A6C8EDB24B647400098E340 /* CustomInteractiveTransition.swift */,
 				0A2339D6249E563E00290688 /* CollectionViewController.swift */,
 				0A62E0C724B206CE005D8CE1 /* SwipeVC.swift */,
 				0A6C8ED324B5E5C70098E340 /* AnimationForSwipeVCToNew.swift */,
@@ -193,6 +199,14 @@
 				0A668DEA24929BF900F860CB /* LaunchScreen.storyboard */,
 			);
 			path = "lessson 2_1";
+			sourceTree = "<group>";
+		};
+		0A6C8EDD24B651340098E340 /* AnimateImage */ = {
+			isa = PBXGroup;
+			children = (
+				0A6C8EDE24B6515B0098E340 /* PopAnimator.swift */,
+			);
+			path = AnimateImage;
 			sourceTree = "<group>";
 		};
 		0A97371924B1319000DA9BF0 /* CustomCell */ = {
@@ -296,7 +310,9 @@
 				0AE3BB8624AF934800742558 /* CustomActivitiIndicator.swift in Sources */,
 				0A2339DD249E8E9B00290688 /* MyGroupTableViewController.swift in Sources */,
 				0A2339D7249E563E00290688 /* CollectionViewController.swift in Sources */,
+				0A6C8EDC24B647400098E340 /* CustomInteractiveTransition.swift in Sources */,
 				0A62E0C824B206CE005D8CE1 /* SwipeVC.swift in Sources */,
+				0A6C8EDF24B6515B0098E340 /* PopAnimator.swift in Sources */,
 				0A2339E1249E901600290688 /* GroupCell.swift in Sources */,
 				0A2339E524A3555A00290688 /* AvatarView.swift in Sources */,
 				0A668DE424929BF800F860CB /* LoginViewController.swift in Sources */,
