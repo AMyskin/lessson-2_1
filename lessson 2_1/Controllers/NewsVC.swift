@@ -265,6 +265,9 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         navigationController?.pushViewController(collectionPhotoVC!, animated: true)
         
     }
+    
+    
+
  
     
     

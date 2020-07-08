@@ -610,7 +610,7 @@
         <!--Друзья-->
         <scene sceneID="PFu-B0-xSl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tAF-lk-zOU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tAF-lk-zOU" customClass="CustomNavigationController" customModule="lessson_2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person" catalog="system" selectedImage="person" id="ByT-xQ-4Kp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cm1-7L-WXN">

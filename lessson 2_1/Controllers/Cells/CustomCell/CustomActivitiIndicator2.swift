@@ -66,6 +66,7 @@ class CustomActivitiIndicator2: UIView {
         strokeStartAnimation.toValue = 1
         
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
+
         strokeEndAnimation.fromValue = 0.1
         strokeEndAnimation.toValue = 1.05
         

@@ -75,8 +75,8 @@ public struct User {
         let userName = "\(Lorem.firstName) \(Lorem.lastName)"
         
         
-        let userImsages: [UIImage] = (1...Int.random(in: 5...10))
-            .map { $0 % 6 }
+        let userImsages: [UIImage] = (1...Int.random(in: 5...15))
+            .map { $0 % 12 }
             .shuffled()
             .compactMap({ String($0) })
             .compactMap({ UIImage(named: $0) })
@@ -87,8 +87,8 @@ public struct User {
             return NewsOfUser(
                 author: userName,
                 avatar: userImsages.first,
-                image: (1...Int.random(in: 5...10))
-                    .map { $0 % 6 }
+                image: (1...Int.random(in: 5...15))
+                    .map { $0 % 12 }
                     .shuffled()
                     .compactMap({ String($0) })
                     .compactMap({ UIImage(named: $0) }),

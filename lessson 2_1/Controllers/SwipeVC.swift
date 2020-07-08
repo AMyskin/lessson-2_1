@@ -46,6 +46,8 @@ class SwipeVC: UIViewController {
     var interactiveAnimator: UIViewPropertyAnimator!
     
     
+    
+    
     enum MyPanWay {
         case LeftToRight
         case RightToLeft
