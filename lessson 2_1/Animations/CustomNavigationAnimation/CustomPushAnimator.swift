@@ -31,8 +31,8 @@ final class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         destination.view.frame = CGRect(x: source.view.frame.width  ,y:  0,   width: source.view.frame.height, height: source.view.frame.width)
 
         
-        print(source.view.frame)
-        print(destination.view.frame)
+       // print(source.view.frame)
+       // print(destination.view.frame)
         
         
         

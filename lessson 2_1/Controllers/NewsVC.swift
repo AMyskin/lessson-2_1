@@ -12,7 +12,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     
     
-        var transition = PopAnimator()
+        var selectedCell = UICollectionViewCell()
     
     
     
@@ -271,7 +271,9 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         
         collectionPhotoVC.userImage = user.newsTest[collectionView.tag].image
         
-        transition = PopAnimator(startImage: selectedcell)
+        selectedCell = selectedcell
+        
+        
         
         collectionPhotoVC.indexOfImage = indexPath.row
 //        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
@@ -304,12 +306,12 @@ extension NewsVC: UIViewControllerTransitioningDelegate {
       presenting: UIViewController, source: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
     
-      return transition
+      return PopAnimator(startImage: selectedCell, presenting: true)
     }
     
     func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-      return nil
+      return PopAnimator(startImage: selectedCell, presenting: false)
     }
 
 
