@@ -18,8 +18,7 @@ class SwipeVC: UIViewController {
     var indexOfImage : Int = 0
     @IBOutlet weak var indexOfPhotoLabel: UILabel!
     
-    
-    
+
     
     
     override func viewDidLoad() {
@@ -47,6 +46,7 @@ class SwipeVC: UIViewController {
     
     
     var interactiveAnimator: UIViewPropertyAnimator!
+    var interactiveAnimatorTopToBottom: UIViewPropertyAnimator!
     
     
     
@@ -54,6 +54,7 @@ class SwipeVC: UIViewController {
     enum MyPanWay {
         case LeftToRight
         case RightToLeft
+        case TopToBottom
     }
     
     
@@ -85,82 +86,141 @@ class SwipeVC: UIViewController {
             if translation.x > 0 {
                 myPanWay = .LeftToRight
                 myDirection =  self.view.frame.size.width
-            } else {
+            } else if translation.x < 0 {
                 myPanWay = .RightToLeft
                 myDirection = (0 - self.view.frame.size.width)
             }
-             print(self.image.frame.size.width)
+            if translation.y > 0 {
+                myPanWay = .TopToBottom
+                myDirection =  self.view.frame.size.width
+            }
             
-            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5,
+             print(self.image.frame.size.width)
+            if myPanWay != .TopToBottom {
+                interactiveAnimator = UIViewPropertyAnimator(duration: 0.5,
+                                                             curve: .easeInOut, animations: {
+                                                                self.image.frame =
+                                                                    self.image.frame.offsetBy(dx: myDirection, dy: 0)
+                                                                self.image.alpha = 0
+                                                                self.viewBeforeImage.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+                                                                
+                                                                
+                                                                
+                })
+                interactiveAnimator.pauseAnimation()
+                
+            }
+            
+            interactiveAnimatorTopToBottom = UIViewPropertyAnimator(duration: 0.5,
                                                          curve: .easeInOut, animations: {
                                                             self.image.frame =
-                                                            self.image.frame.offsetBy(dx: myDirection, dy: 0)
+                                                                self.image.frame.offsetBy(dx: 0, dy: myDirection)
                                                             self.image.alpha = 0
                                                             self.viewBeforeImage.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-                                                         
-                                                      
+                                                            
+                                                            
                                                             
             })
-            interactiveAnimator.pauseAnimation()
+            interactiveAnimatorTopToBottom.pauseAnimation()
+            
+            
         case .changed:
             
                 let translation = recognizer.translation(in: self.view)
+                 print (translation)
+                
+                
                 if myPanWay == .LeftToRight {
                     interactiveAnimator.fractionComplete = translation.x / self.image.frame.size.width
-                } else {
+                } else if  myPanWay == .RightToLeft {
                     let positive = -translation.x
                     interactiveAnimator.fractionComplete = positive / self.image.frame.size.width
                 }
-               // print("changed = \(interactiveAnimator.fractionComplete)   translation.x = \(translation.x)  image = \(self.image.frame.size.width)  ")
-                
+//                print("changed = \(interactiveAnimator.fractionComplete)   translation.x = \(translation.x)  image = \(self.image.frame.size.width)  ")
+                if  myPanWay == .TopToBottom{
+                    
+                    interactiveAnimatorTopToBottom.fractionComplete = translation.y / self.image.frame.size.height
+                }
+                print (interactiveAnimatorTopToBottom.fractionComplete)
+            
+                if myPanWay != .TopToBottom {
+                    
+                    if interactiveAnimator.fractionComplete > 0.50 {
+                        //interactiveAnimator.stopAnimation(true)
+                        //interactiveAnimator.fractionComplete = 1
+                        interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                        if myPanWay == .RightToLeft {
+                            if  indexOfImage < userImage.count - 1 {
+                                indexOfImage += 1
+                            } else {
+                                indexOfImage = 0
+                            }
+                            // print("left index = \(indexOfImage)")
+                            
+                            returnAnimation()
+                            changeImage()
+                            // print("change")
+                            recognizer.state = .ended
+                            
+                        }
+                        
+                        if myPanWay == .LeftToRight {
+                            if indexOfImage > 0 {
+                                indexOfImage -= 1
+                            } else {
+                                indexOfImage = userImage.count - 1
+                            }
+                            // print("right index = \(indexOfImage)")
+                            
+                            
+                            returnAnimation()
+                            changeImage()
+                            //      print("change")
+                            recognizer.state = .ended
+                            
+                        }
+                    }
+                }
             
             
-            if interactiveAnimator.fractionComplete > 0.55 {
-                //interactiveAnimator.stopAnimation(true)
-                interactiveAnimator.fractionComplete = 1
-                //interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-                if myPanWay == .RightToLeft {
-                    if  indexOfImage < userImage.count - 1 {
-                        indexOfImage += 1
-                    } else {
-                        indexOfImage = 0
-                    }
-                   // print("left index = \(indexOfImage)")
+                if myPanWay == .TopToBottom && interactiveAnimatorTopToBottom.fractionComplete > 0.35 {
                     
-              returnAnimation()
-                    changeImage()
-                   // print("change")
-                    recognizer.state = .ended
-                  
-                }
-                
-                if myPanWay == .LeftToRight {
-                    if indexOfImage>0 {
-                        indexOfImage -= 1
-                    } else {
-                        indexOfImage = userImage.count - 1
-                    }
-                    // print("right index = \(indexOfImage)")
+                    interactiveAnimatorTopToBottom.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                     
+                    //interactiveAnimatorTopToBottom.fractionComplete = 1
                     
-            returnAnimation()
-                    changeImage()
-                     //      print("change")
-                    recognizer.state = .ended
-                    
-                }
             }
+            
             
         case .ended:
             
-           // print(interactiveAnimator.fractionComplete)
-            if interactiveAnimator.fractionComplete < 1 {
+            
+            if myPanWay != .TopToBottom {
                 
-                returnAnimation()
+                
+                
+                // print(interactiveAnimator.fractionComplete)
+                if interactiveAnimator.fractionComplete < 1  {
+                    
+                    returnAnimation()
+                    
+                }
+                
+                interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                
                 
             }
             
-            interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            if myPanWay == .TopToBottom && interactiveAnimatorTopToBottom.fractionComplete > 0.35 {
+                
+                interactiveAnimatorTopToBottom.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            } else {
+                returnAnimationTop()
+            }
+                
             
             
   
@@ -172,15 +232,31 @@ class SwipeVC: UIViewController {
     
     private func returnAnimation() {
         interactiveAnimator.stopAnimation(true)
+        
+                    print("returnAnimation  image = \(self.image.frame)  ")
                   
                   interactiveAnimator.addAnimations {
-                      self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
+                      self.image.frame = CGRect(x: self.image.layer.bounds.origin.x, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
                       self.image.alpha = 1
                     self.viewBeforeImage.transform = .identity
                   }
                   
                   interactiveAnimator.startAnimation()
     }
+    
+    private func returnAnimationTop() {
+        interactiveAnimatorTopToBottom.stopAnimation(true)
+                  
+                  interactiveAnimatorTopToBottom.addAnimations {
+                      self.image.frame = CGRect(x: 0, y: self.image.layer.bounds.origin.y,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
+                      self.image.alpha = 1
+                    self.viewBeforeImage.transform = .identity
+                  }
+                  
+                  interactiveAnimatorTopToBottom.startAnimation()
+    }
+    
+    
     
     
     
@@ -198,10 +274,10 @@ class SwipeVC: UIViewController {
         print(myPanWay)
         
         let fromMove = myPanWay == .LeftToRight ? -image.layer.bounds.width : image.layer.bounds.width * 2
-        let toMove = image.layer.bounds.width / 2
+        let toMove = myPanWay == .LeftToRight ? image.layer.bounds.width / 1.2 : image.layer.bounds.width - image.layer.bounds.width / 1.2
         
         let toValue = image.layer.bounds
-        let fromValue = CGRect(x: image.layer.bounds.origin.x, y: image.layer.bounds.origin.y,   width: image.layer.bounds.width/1.5, height: image.layer.bounds.height/1.5)
+        let fromValue = CGRect(x: image.layer.bounds.origin.x, y: image.layer.bounds.origin.y,   width: image.layer.bounds.width/1.7, height: image.layer.bounds.height/1.7)
         
         print("from = \(fromValue)")
         print("toValue = \(toValue)")

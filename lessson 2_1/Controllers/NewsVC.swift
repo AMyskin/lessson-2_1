@@ -263,7 +263,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         
         
         guard  let collectionPhotoVC = SwipeVC.storyboardInstance(),
-                let selectedcell = collectionView.cellForItem(at: indexPath)
+                let selectedcell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
         else {return}
         collectionPhotoVC.transitioningDelegate = self
         
@@ -303,6 +303,7 @@ extension NewsVC: UIViewControllerTransitioningDelegate {
       forPresented presented: UIViewController,
       presenting: UIViewController, source: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
+    
       return transition
     }
     

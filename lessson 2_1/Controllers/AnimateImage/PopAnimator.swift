@@ -25,7 +25,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         self.startImage = nil
     }
     
-    let duration = 3.0
+    let duration = 1.0
     var presenting = true
     var originFrame = CGRect.zero
 
@@ -52,7 +52,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         guard let startImage = startImage else {return}
         
         let imageFrame = startImage.convert(startImage.bounds, to: containerView)
-        let imageFrameCenter = CGPoint(x: imageFrame.midX, y: imageFrame.midY)
+       // let imageFrameCenter = CGPoint(x: imageFrame.midX, y: imageFrame.midY)
 
         let initialFrame = presenting ? imageFrame : recipeView.frame
         //let finalFrame = presenting ? recipeView.frame : originFrame
