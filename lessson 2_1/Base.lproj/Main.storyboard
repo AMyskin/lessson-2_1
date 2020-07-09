@@ -261,10 +261,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLF-ah-Xch">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xtJ-F1-pP4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -290,13 +290,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fLF-ah-Xch" firstAttribute="top" secondItem="w1M-Ae-6MO" secondAttribute="top" id="3Ih-Tw-ciR"/>
+                            <constraint firstItem="fLF-ah-Xch" firstAttribute="top" secondItem="pmM-Ei-cVC" secondAttribute="top" id="3Ih-Tw-ciR"/>
                             <constraint firstItem="w1M-Ae-6MO" firstAttribute="trailing" secondItem="fLF-ah-Xch" secondAttribute="trailing" id="7d3-ni-ac4"/>
                             <constraint firstItem="fLF-ah-Xch" firstAttribute="leading" secondItem="w1M-Ae-6MO" secondAttribute="leading" id="AI1-WM-LAf"/>
                             <constraint firstItem="kyh-pA-HRe" firstAttribute="top" secondItem="w1M-Ae-6MO" secondAttribute="top" constant="20" id="JcF-UC-Yt1"/>
                             <constraint firstItem="kyh-pA-HRe" firstAttribute="leading" secondItem="w1M-Ae-6MO" secondAttribute="leading" constant="20" id="bwC-dU-Zfq"/>
                             <constraint firstItem="w1M-Ae-6MO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kyh-pA-HRe" secondAttribute="trailing" constant="20" id="j9I-N5-QG7"/>
-                            <constraint firstItem="w1M-Ae-6MO" firstAttribute="bottom" secondItem="fLF-ah-Xch" secondAttribute="bottom" id="sdW-ed-U9E"/>
+                            <constraint firstAttribute="bottom" secondItem="fLF-ah-Xch" secondAttribute="bottom" id="sdW-ed-U9E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w1M-Ae-6MO"/>
                     </view>
