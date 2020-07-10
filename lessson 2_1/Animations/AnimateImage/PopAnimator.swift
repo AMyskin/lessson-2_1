@@ -116,7 +116,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         guard let toView = transitionContext.view(forKey: .to),
-           let presentedVC = transitionContext.viewController(forKey: .to),
+          // let presentedVC = transitionContext.viewController(forKey: .to),
             let recipeView =  transitionContext.view(forKey: .from) else {
                 transitionContext.completeTransition(false)
                 return
