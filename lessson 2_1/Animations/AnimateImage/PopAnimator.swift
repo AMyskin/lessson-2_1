@@ -116,7 +116,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         guard let toView = transitionContext.view(forKey: .to),
-           // let presentedVC = transitionContext.viewController(forKey: .to),
+           let presentedVC = transitionContext.viewController(forKey: .to),
             let recipeView =  transitionContext.view(forKey: .from) else {
                 transitionContext.completeTransition(false)
                 return
@@ -129,7 +129,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let finalFrame = startImage.convert(startImage.bounds, to: containerView)
         //let originFrame = transitionContext.finalFrame(for: presentedVC)
         
-        //  let initialFrame = originFrame
+          //let initialFrame = originFrame
         
         
         guard let imageSize = containerView.viewWithTag(100) as? UIImageView else {return}
@@ -139,6 +139,8 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let initialFrame = imageSize.contentClippingRect
         
         let aspectRatio = initialFrame.height / initialFrame.width
+        
+        print("Image aspectRatio = \(aspectRatio) ")
         
         let xScaleFactor = finalFrame.width / initialFrame.width
         
@@ -158,19 +160,29 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView)
         containerView.bringSubviewToFront(recipeView)
         
+      //  let finalTransitionSize = finalFrame
+        
         UIView.animate(
             withDuration: duration,
             delay:0.0,
             
             animations: {
-                recipeView.transform =  scaleTransform
-                recipeView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+                //recipeView.frame = finalFrame
+               recipeView.transform =  scaleTransform
+               recipeView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
                 
         }, completion: { (finished) in
             transitionContext.completeTransition(finished)
         })
         
     }
+    
+    
+
+    
+    
+    
+    
     
     
     

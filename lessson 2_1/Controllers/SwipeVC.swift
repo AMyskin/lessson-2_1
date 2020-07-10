@@ -26,11 +26,12 @@ class SwipeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeInteractionController = SwipeInteractionController(viewController: self)
         image.tag = 100
         nextImageView.contentMode = .scaleAspectFit
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         self.view.addGestureRecognizer(recognizer)
-        swipeInteractionController = SwipeInteractionController(viewController: self)
+        
     }
     
     override var prefersStatusBarHidden: Bool{
@@ -144,14 +145,14 @@ class SwipeVC: UIViewController {
             }
             
             if myPanWay == .TopToBottom {
-                
+
                 interactiveAnimatorTopToBottom = UIViewPropertyAnimator(duration: 0.5,
                                                                         curve: .easeInOut, animations: {
                                                                             self.image.frame =
                                                                             self.image.frame.offsetBy(dx: 0, dy: myDirection)
                 })
-          
-                
+
+
                 interactiveAnimatorTopToBottom.pauseAnimation()
             }
             
@@ -170,7 +171,7 @@ class SwipeVC: UIViewController {
                 }
 
                 if  myPanWay == .TopToBottom{
-                    
+
                     interactiveAnimatorTopToBottom.fractionComplete = translation.y / self.image.frame.size.height
                 }
                
@@ -241,11 +242,11 @@ class SwipeVC: UIViewController {
             
             if myPanWay == .TopToBottom{
                 if  interactiveAnimatorTopToBottom.fractionComplete > 0.3 {
-                    
+
                     interactiveAnimatorTopToBottom.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    
+
                     returnAnimationTop()
                 }
 
@@ -270,28 +271,31 @@ class SwipeVC: UIViewController {
                       self.image.alpha = 1
                     self.viewBeforeImage.transform = .identity
                     let offsetX = self.myPanWay == .RightToLeft ? self.view.bounds.width: -self.view.bounds.width
-                    self.nextImageView.frame = self.view.bounds.offsetBy(dx: offsetX, dy: 0)
+                    if self.canSlide(self.myPanWay) {
+                        self.nextImageView.frame = self.view.bounds.offsetBy(dx: offsetX, dy: 0)
+                        
+                    }
                   }
                   
                   interactiveAnimator.startAnimation()
    
-             interactiveAnimator.addCompletion{(position) in
-                 guard position == .end  else {return}
-                 self.nextImageView.removeFromSuperview()
-             }
+            // interactiveAnimator.addCompletion{(position) in
+            //     guard position == .end  else {return}
+            //     self.nextImageView.removeFromSuperview()
+            // }
         
                 
     }
-    
+
     private func returnAnimationTop() {
         interactiveAnimatorTopToBottom.stopAnimation(true)
-                  
+
                   interactiveAnimatorTopToBottom.addAnimations {
                       self.image.frame = CGRect(x: 0, y: 0,   width: self.image.layer.bounds.width, height: self.image.layer.bounds.height)
                       self.image.alpha = 1
                     self.viewBeforeImage.transform = .identity
                   }
-                  
+
                   interactiveAnimatorTopToBottom.startAnimation()
     }
     
@@ -358,3 +362,4 @@ class SwipeVC: UIViewController {
     
     
 }
+

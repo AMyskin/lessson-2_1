@@ -222,10 +222,18 @@
 		0A6C8EE324B7284A0098E340 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				0A6E4E5E24B91AA60018D33C /* testAnimation */,
 				0A6C8EE124B7243D0098E340 /* CustomNavigationAnimation */,
 				0A6C8EDD24B651340098E340 /* AnimateImage */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		0A6E4E5E24B91AA60018D33C /* testAnimation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = testAnimation;
 			sourceTree = "<group>";
 		};
 		0A97371924B1319000DA9BF0 /* CustomCell */ = {

@@ -21,7 +21,8 @@ class FreindsCell: UITableViewCell {
     
     //weak var delegate: FreindsCellDelegate?
     
-
+    @IBOutlet weak var friendCellView: UIView!
+    
     
     @IBOutlet weak var name: UILabel!{
         didSet {

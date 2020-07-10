@@ -12,7 +12,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     
     
-        var selectedCell = UICollectionViewCell()
+    var selectedCell = UICollectionViewCell()
     
     
     
@@ -66,34 +66,34 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         guard let cell = cell as? NewsCell else {return}
         cell.setCollectionDelegate(self, for: indexPath.row)
         
-
-
+        
+        
     }
-// MARK: - Как я понял данный метод не подходит для анимации
+    // MARK: - Как я понял данный метод не подходит для анимации
     
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        guard let cell = cell as? NewsCell else {return}
-//
-//                 //print("stop")
-//
-//        //
-//               let animation = CABasicAnimation(keyPath: "opacity")
-//                      animation.fromValue = 1
-//                      animation.toValue = 0
-//                      animation.duration = 1
-//                      cell.collectionView.layer.add(animation, forKey: nil)
-//
-//        let toValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width/3, height: cell.collectionView.layer.bounds.height/3)
-//        let fromValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width, height: cell.collectionView.layer.bounds.height)
-//
-//        let animation2 = CABasicAnimation(keyPath: "bounds")
-//        animation2.fromValue = fromValue
-//        animation2.toValue = toValue
-//        animation2.duration = 0.5
-//        cell.collectionView.layer.add(animation2, forKey: nil)
-//
-//
-//    }
+    //    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //        guard let cell = cell as? NewsCell else {return}
+    //
+    //                 //print("stop")
+    //
+    //        //
+    //               let animation = CABasicAnimation(keyPath: "opacity")
+    //                      animation.fromValue = 1
+    //                      animation.toValue = 0
+    //                      animation.duration = 1
+    //                      cell.collectionView.layer.add(animation, forKey: nil)
+    //
+    //        let toValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width/3, height: cell.collectionView.layer.bounds.height/3)
+    //        let fromValue = CGRect(x: cell.collectionView.layer.bounds.origin.x, y: cell.collectionView.layer.bounds.origin.y,   width: cell.collectionView.layer.bounds.width, height: cell.collectionView.layer.bounds.height)
+    //
+    //        let animation2 = CABasicAnimation(keyPath: "bounds")
+    //        animation2.fromValue = fromValue
+    //        animation2.toValue = toValue
+    //        animation2.duration = 0.5
+    //        cell.collectionView.layer.add(animation2, forKey: nil)
+    //
+    //
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
@@ -111,7 +111,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         
         cell.delegate = self
         
-   
+        
         
         return cell
     }
@@ -199,21 +199,21 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         static let maxPhotos = 4
     }
     
-     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? PhotoCollectionViewCell else {return}
- 
+        
         cell.alpha = 1
-
+        
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = 1
         animation.beginTime = CACurrentMediaTime() + 0.1 * Double(indexPath.row)
         cell.layer.add(animation, forKey: nil)
-
+        
         let fromValue = CGRect(x: cell.layer.bounds.origin.x, y: cell.layer.bounds.origin.y,   width: cell.layer.bounds.width/3, height: cell.layer.bounds.height/3)
         let toValue = CGRect(x: cell.layer.bounds.origin.x, y: cell.layer.bounds.origin.y,   width: cell.layer.bounds.width, height: cell.layer.bounds.height)
-
+        
         let animation2 = CABasicAnimation(keyPath: "bounds")
         animation2.fromValue = fromValue
         animation2.toValue = toValue
@@ -232,9 +232,9 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCollectionViewCell
         
         let newsModel = user.newsTest[collectionView.tag]
-       let image = user.newsTest[collectionView.tag].image[indexPath.row]
-       
-       cell.photoImageView.image = image
+        let image = user.newsTest[collectionView.tag].image[indexPath.row]
+        
+        cell.photoImageView.image = image
         
         if indexPath.row == Constants.maxPhotos - 1 {
             let count = newsModel.image.count - Constants.maxPhotos
@@ -255,16 +255,16 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//       let collectionPhotoVC = CollectionViewController.storyboardInstance()
-//
-//        collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
-//        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
+        //       let collectionPhotoVC = CollectionViewController.storyboardInstance()
+        //
+        //        collectionPhotoVC?.userImage = user.newsTest[collectionView.tag].image
+        //        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
         
         
         
         guard  let collectionPhotoVC = SwipeVC.storyboardInstance(),
-                let selectedcell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-        else {return}
+            let selectedcell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
+            else {return}
         collectionPhotoVC.transitioningDelegate = self
         
         
@@ -276,24 +276,24 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
         
         
         collectionPhotoVC.indexOfImage = indexPath.row
-//        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let secondViewController = storyboard.instantiateViewController(identifier: "SwipeVC")
-      collectionPhotoVC.modalPresentationStyle = .fullScreen
+        //        navigationController?.pushViewController(collectionPhotoVC!, animated: true)
+        //
+        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let secondViewController = storyboard.instantiateViewController(identifier: "SwipeVC")
+        collectionPhotoVC.modalPresentationStyle = .fullScreen
         
         self.present(collectionPhotoVC, animated: true, completion: nil)
     }
     
     
     
-
-    
-
- 
     
     
- 
+    
+    
+    
+    
+    
     
 }
 
@@ -302,10 +302,10 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, News
 extension NewsVC: UIViewControllerTransitioningDelegate {
     
     func animationController(
-      forPresented presented: UIViewController,
-      presenting: UIViewController, source: UIViewController)
+        forPresented presented: UIViewController,
+        presenting: UIViewController, source: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-    
+            
             return PopAnimator(startImage: selectedCell, presenting: true, interactionController: nil)
     }
     
@@ -314,19 +314,30 @@ extension NewsVC: UIViewControllerTransitioningDelegate {
             guard let swipeVC = dismissed as? SwipeVC else {
                 return nil}
             
-      return PopAnimator(startImage: selectedCell, presenting: false,interactionController: swipeVC.swipeInteractionController)
+            return PopAnimator(startImage: selectedCell, presenting: false,interactionController: swipeVC.swipeInteractionController)
+    }
+    
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?{
+        guard let animator = animator as? PopAnimator,
+            let interactionController = animator.interactionController,
+            interactionController.interactionInProgress
+            else {
+                return nil
+        }
+        return interactionController
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning)
-      -> UIViewControllerInteractiveTransitioning? {
-      guard let animator = animator as? PopAnimator,
-        let interactionController = animator.interactionController,
-        interactionController.interactionInProgress
-        else {
-          return nil
-      }
-      return interactionController
+        -> UIViewControllerInteractiveTransitioning? {
+            guard let animator = animator as? PopAnimator,
+                let interactionController = animator.interactionController,
+                interactionController.interactionInProgress
+                else {
+                    return nil
+            }
+            return interactionController
     }
-
-
+    
+    
 }
+
