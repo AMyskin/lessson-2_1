@@ -306,12 +306,26 @@ extension NewsVC: UIViewControllerTransitioningDelegate {
       presenting: UIViewController, source: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
     
-      return PopAnimator(startImage: selectedCell, presenting: true)
+            return PopAnimator(startImage: selectedCell, presenting: true, interactionController: nil)
     }
     
     func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-      return PopAnimator(startImage: selectedCell, presenting: false)
+            guard let swipeVC = dismissed as? SwipeVC else {
+                return nil}
+            
+      return PopAnimator(startImage: selectedCell, presenting: false,interactionController: swipeVC.swipeInteractionController)
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning)
+      -> UIViewControllerInteractiveTransitioning? {
+      guard let animator = animator as? PopAnimator,
+        let interactionController = animator.interactionController,
+        interactionController.interactionInProgress
+        else {
+          return nil
+      }
+      return interactionController
     }
 
 

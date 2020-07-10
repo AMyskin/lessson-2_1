@@ -10,6 +10,9 @@ import UIKit
 
 class FriendsHeaderCell: UITableViewHeaderFooterView {
 
+   
+    @IBOutlet weak var headerView: UIView!
+    
     @IBOutlet weak var headerTitle: UILabel!
     /*
     // Only override draw() if you perform custom drawing.

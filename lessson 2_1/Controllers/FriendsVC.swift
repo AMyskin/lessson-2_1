@@ -130,9 +130,9 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
         
         
-        let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
-        
-        headerView.contentView.backgroundColor = color
+//        let color = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
+//        
+//        headerView.headerView.backgroundColor = color
         
         return headerView
     }
@@ -381,7 +381,7 @@ extension UIView{
         gradientLayer.frame = self.bounds
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        print(gradientLayer.frame)
+       //print(gradientLayer.frame)
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

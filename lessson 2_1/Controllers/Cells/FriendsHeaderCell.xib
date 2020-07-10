@@ -13,6 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ojj-tg-zjJ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VH0-ev-vhy">
                     <rect key="frame" x="14" y="8" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -22,10 +26,17 @@
                 </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Ojj-tg-zjJ" secondAttribute="bottom" id="CIs-0D-Ojo"/>
+                <constraint firstItem="Ojj-tg-zjJ" firstAttribute="top" secondItem="qBL-SS-aOT" secondAttribute="top" id="DBf-jM-VJD"/>
+                <constraint firstItem="s9i-ZZ-uas" firstAttribute="trailing" secondItem="Ojj-tg-zjJ" secondAttribute="trailing" id="Lxi-eF-uCr"/>
+                <constraint firstItem="Ojj-tg-zjJ" firstAttribute="leading" secondItem="s9i-ZZ-uas" secondAttribute="leading" id="S2a-gC-gx8"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="s9i-ZZ-uas"/>
             <connections>
                 <outlet property="headerTitle" destination="VH0-ev-vhy" id="8aR-xd-zTe"/>
+                <outlet property="headerView" destination="Ojj-tg-zjJ" id="77g-q5-LLo"/>
             </connections>
             <point key="canvasLocation" x="-171" y="73"/>
         </view>

@@ -12,24 +12,24 @@ import UIKit
 class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     
+    let interactionController: SwipeInteractionController?
     
     
-    let startImage: UICollectionViewCell?
+    
+    var startImage: UICollectionViewCell? = nil
     let duration = 0.7
     var presenting = true
     var originFrame = CGRect.zero
     
-    init(startImage: UICollectionViewCell, presenting: Bool){
+    init(startImage: UICollectionViewCell, presenting: Bool, interactionController: SwipeInteractionController?){
         
         self.startImage = startImage
         self.presenting = presenting
+        self.interactionController = interactionController
     }
     
     
-    override init(){
-        
-        self.startImage = nil
-    }
+
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?)
@@ -116,7 +116,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         guard let toView = transitionContext.view(forKey: .to),
-            let presentedVC = transitionContext.viewController(forKey: .to),
+           // let presentedVC = transitionContext.viewController(forKey: .to),
             let recipeView =  transitionContext.view(forKey: .from) else {
                 transitionContext.completeTransition(false)
                 return
@@ -127,22 +127,31 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         guard let startImage = startImage else {return}
         
         let finalFrame = startImage.convert(startImage.bounds, to: containerView)
-        let originFrame = transitionContext.finalFrame(for: presentedVC)
+        //let originFrame = transitionContext.finalFrame(for: presentedVC)
+        
+        //  let initialFrame = originFrame
         
         
-        let initialFrame = originFrame
+        guard let imageSize = containerView.viewWithTag(100) as? UIImageView else {return}
         
+        print("Image dismiss size = \(imageSize.contentClippingRect) ")
         
-        //print("init = \(initialFrame) finual = \(finalFrame)")
+        let initialFrame = imageSize.contentClippingRect
         
+        let aspectRatio = initialFrame.height / initialFrame.width
         
         let xScaleFactor = finalFrame.width / initialFrame.width
         
         let yScaleFactor = finalFrame.height / initialFrame.height
         
         
-        let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
         
+        let scaleTransform = aspectRatio < 1 ? CGAffineTransform(scaleX: yScaleFactor, y: yScaleFactor) :
+            CGAffineTransform(scaleX: xScaleFactor, y: xScaleFactor)
+        
+        
+        
+        recipeView.frame = imageSize.contentClippingRect
         
         recipeView.layer.masksToBounds = true
         
