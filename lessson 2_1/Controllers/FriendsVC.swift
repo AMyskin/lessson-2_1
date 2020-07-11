@@ -69,7 +69,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         super.viewDidLoad()
         
      
-        customSearchBar.delegate = self
+        //customSearchBar.delegate = self
         charPicker.delegate = self
         charPicker.chars = chars
         

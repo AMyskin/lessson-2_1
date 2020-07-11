@@ -146,7 +146,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let yScaleFactor = finalFrame.height / initialFrame.height
         
-        
+        // не поличается правильтно сделать анимацию поэтому обрезаю уже после анимации
         
         let scaleTransform = aspectRatio < 1 ? CGAffineTransform(scaleX: yScaleFactor, y: yScaleFactor) :
             CGAffineTransform(scaleX: xScaleFactor, y: xScaleFactor)
@@ -155,7 +155,10 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         recipeView.frame = imageSize.contentClippingRect
         
-        recipeView.layer.masksToBounds = true
+  
+        
+ 
+        //recipeView.layer.masksToBounds = true
         
         containerView.addSubview(toView)
         containerView.bringSubviewToFront(recipeView)
@@ -167,7 +170,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             delay:0.0,
             
             animations: {
-                //recipeView.frame = finalFrame
+               //recipeView.frame = finalFrame
                recipeView.transform =  scaleTransform
                recipeView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
                 

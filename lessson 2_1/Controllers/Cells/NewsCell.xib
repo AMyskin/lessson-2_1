@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="577" id="KGk-i7-Jjw" customClass="NewsCell" customModule="lessson_2" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="580" id="KGk-i7-Jjw" customClass="NewsCell" customModule="lessson_2" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="577"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -122,6 +122,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="o1G-gl-myl" firstAttribute="top" secondItem="5e0-O5-Nss" secondAttribute="top" id="IWk-8X-I5T"/>
+                                    <constraint firstAttribute="width" secondItem="5e0-O5-Nss" secondAttribute="height" multiplier="1:1" id="Kbq-lD-5sm"/>
                                     <constraint firstAttribute="trailing" secondItem="o1G-gl-myl" secondAttribute="trailing" id="aRH-jP-f3X"/>
                                     <constraint firstAttribute="bottom" secondItem="o1G-gl-myl" secondAttribute="bottom" id="fRw-UK-e37"/>
                                     <constraint firstAttribute="height" constant="320" id="fcm-6U-Occ"/>
@@ -152,13 +153,13 @@
                             <constraint firstItem="fwA-EU-28u" firstAttribute="leading" secondItem="ec9-1x-a1D" secondAttribute="leading" constant="5" id="8PS-OS-JOx"/>
                             <constraint firstAttribute="bottom" secondItem="kkJ-0P-Zmv" secondAttribute="bottom" constant="7" id="8ka-IA-frt"/>
                             <constraint firstAttribute="trailing" secondItem="5e0-O5-Nss" secondAttribute="trailing" id="9Er-FE-9YK"/>
+                            <constraint firstItem="o1G-gl-myl" firstAttribute="top" secondItem="NUY-jh-Rxu" secondAttribute="bottom" constant="10" id="Bb0-ZA-CnE"/>
                             <constraint firstAttribute="bottom" secondItem="gZg-av-iVA" secondAttribute="bottom" constant="10" id="BlA-zo-Xe7"/>
                             <constraint firstItem="T5W-ak-5eQ" firstAttribute="leading" secondItem="gZg-av-iVA" secondAttribute="trailing" id="Pcg-Kp-Nel"/>
                             <constraint firstItem="cKP-15-Pxa" firstAttribute="leading" secondItem="4pm-qZ-UA9" secondAttribute="trailing" constant="61" id="PrH-Hi-sxP"/>
                             <constraint firstItem="5e0-O5-Nss" firstAttribute="leading" secondItem="ec9-1x-a1D" secondAttribute="leading" id="Xg9-e5-q3H"/>
                             <constraint firstAttribute="bottom" secondItem="cKP-15-Pxa" secondAttribute="bottom" constant="10" id="YPm-AK-qaj"/>
                             <constraint firstAttribute="bottom" secondItem="T5W-ak-5eQ" secondAttribute="bottom" constant="10" id="cR1-nd-Kgz"/>
-                            <constraint firstItem="5e0-O5-Nss" firstAttribute="top" secondItem="NUY-jh-Rxu" secondAttribute="bottom" constant="10" id="dgg-K4-AYa"/>
                             <constraint firstItem="kkJ-0P-Zmv" firstAttribute="leading" secondItem="ec9-1x-a1D" secondAttribute="leading" constant="10" id="ig6-kT-nfR"/>
                             <constraint firstAttribute="trailing" secondItem="T5W-ak-5eQ" secondAttribute="trailing" constant="10" id="lpn-eg-gmV"/>
                             <constraint firstItem="MM7-g9-ACK" firstAttribute="leading" secondItem="fwA-EU-28u" secondAttribute="trailing" constant="20" id="qKg-8M-33g"/>
